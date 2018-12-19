@@ -30,9 +30,12 @@
         __weak typeof (self) weakSelf = self;
         UICollectionViewFlowLayout *layout = [[UICollectionViewFlowLayout alloc] init];
         layout.itemSize = CGSizeMake(self.view.frame.size.width, self.view.frame.size.height);
-        layout.sectionInset = UIEdgeInsetsMake(10, 10, 10, 10);
+        layout.sectionInset = UIEdgeInsetsMake(0, 0, 0, 0);
         _listView = [[UICollectionView alloc]initWithFrame:CGRectZero collectionViewLayout:layout];
         [self.view addSubview:_listView];
+        _listView.delegate = self;
+        _listView.dataSource = self;
+        _listView.backgroundColor = [UIColor whiteColor];
         [_listView mas_makeConstraints:^(MASConstraintMaker *make) {
             make.edges.equalTo(weakSelf.view).with.insets(UIEdgeInsetsMake(0, 0, 0, 0));
         }];

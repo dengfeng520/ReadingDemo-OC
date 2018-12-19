@@ -37,6 +37,7 @@
 		9E151E8B21CA3AB30071EF2E /* Montserrat-ExtraBoldItalic.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 9E151E7821CA3AB30071EF2E /* Montserrat-ExtraBoldItalic.ttf */; };
 		9E151E9221CA42030071EF2E /* Localizable.strings in Resources */ = {isa = PBXBuildFile; fileRef = 9E151E9421CA42030071EF2E /* Localizable.strings */; };
 		9E151E9921CA48680071EF2E /* MainViewController+category.m in Sources */ = {isa = PBXBuildFile; fileRef = 9E151E9821CA48680071EF2E /* MainViewController+category.m */; };
+		9E151E9C21CA54230071EF2E /* MainCollectionCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 9E151E9B21CA54230071EF2E /* MainCollectionCell.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -85,6 +86,8 @@
 		9E151E9621CA42410071EF2E /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/Localizable.strings; sourceTree = "<group>"; };
 		9E151E9721CA48680071EF2E /* MainViewController+category.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "MainViewController+category.h"; sourceTree = "<group>"; };
 		9E151E9821CA48680071EF2E /* MainViewController+category.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = "MainViewController+category.m"; sourceTree = "<group>"; };
+		9E151E9A21CA54230071EF2E /* MainCollectionCell.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = MainCollectionCell.h; sourceTree = "<group>"; };
+		9E151E9B21CA54230071EF2E /* MainCollectionCell.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = MainCollectionCell.m; sourceTree = "<group>"; };
 		F8544C8A21A16C5FF7FB1425 /* libPods-ReadingDemo-OC.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-ReadingDemo-OC.a"; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
 
@@ -196,6 +199,8 @@
 		9E151E5E21CA37EA0071EF2E /* ReadingView */ = {
 			isa = PBXGroup;
 			children = (
+				9E151E9A21CA54230071EF2E /* MainCollectionCell.h */,
+				9E151E9B21CA54230071EF2E /* MainCollectionCell.m */,
 			);
 			path = ReadingView;
 			sourceTree = "<group>";
@@ -383,6 +388,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				9E151E4521CA2CEA0071EF2E /* ViewController.m in Sources */,
+				9E151E9C21CA54230071EF2E /* MainCollectionCell.m in Sources */,
 				9E151E5021CA2CEB0071EF2E /* main.m in Sources */,
 				9E151E4221CA2CEA0071EF2E /* AppDelegate.m in Sources */,
 				9E151E6321CA38640071EF2E /* MainViewController.m in Sources */,
