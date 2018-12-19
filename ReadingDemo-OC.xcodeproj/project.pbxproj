@@ -1,0 +1,606 @@
+// !$*UTF8*$!
+{
+	archiveVersion = 1;
+	classes = {
+	};
+	objectVersion = 50;
+	objects = {
+
+/* Begin PBXBuildFile section */
+		8941D6AAB477FAFED1031A1A /* libPods-ReadingDemo-OC.a in Frameworks */ = {isa = PBXBuildFile; fileRef = F8544C8A21A16C5FF7FB1425 /* libPods-ReadingDemo-OC.a */; };
+		9E151E4221CA2CEA0071EF2E /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 9E151E4121CA2CEA0071EF2E /* AppDelegate.m */; };
+		9E151E4521CA2CEA0071EF2E /* ViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 9E151E4421CA2CEA0071EF2E /* ViewController.m */; };
+		9E151E4821CA2CEA0071EF2E /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 9E151E4621CA2CEA0071EF2E /* Main.storyboard */; };
+		9E151E4A21CA2CEB0071EF2E /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 9E151E4921CA2CEB0071EF2E /* Assets.xcassets */; };
+		9E151E4D21CA2CEB0071EF2E /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 9E151E4B21CA2CEB0071EF2E /* LaunchScreen.storyboard */; };
+		9E151E5021CA2CEB0071EF2E /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 9E151E4F21CA2CEB0071EF2E /* main.m */; };
+		9E151E5C21CA37B10071EF2E /* LTBaseViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 9E151E5B21CA37B10071EF2E /* LTBaseViewController.m */; };
+		9E151E6321CA38640071EF2E /* MainViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 9E151E6221CA38640071EF2E /* MainViewController.m */; };
+		9E151E7921CA3AB30071EF2E /* Montserrat-LightItalic.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 9E151E6621CA3AB30071EF2E /* Montserrat-LightItalic.ttf */; };
+		9E151E7A21CA3AB30071EF2E /* Montserrat-Medium.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 9E151E6721CA3AB30071EF2E /* Montserrat-Medium.ttf */; };
+		9E151E7B21CA3AB30071EF2E /* Montserrat-BoldItalic.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 9E151E6821CA3AB30071EF2E /* Montserrat-BoldItalic.ttf */; };
+		9E151E7C21CA3AB30071EF2E /* Montserrat-Light.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 9E151E6921CA3AB30071EF2E /* Montserrat-Light.ttf */; };
+		9E151E7D21CA3AB30071EF2E /* Montserrat-ThinItalic.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 9E151E6A21CA3AB30071EF2E /* Montserrat-ThinItalic.ttf */; };
+		9E151E7E21CA3AB30071EF2E /* Montserrat-ExtraLight.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 9E151E6B21CA3AB30071EF2E /* Montserrat-ExtraLight.ttf */; };
+		9E151E7F21CA3AB30071EF2E /* Montserrat-Thin.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 9E151E6C21CA3AB30071EF2E /* Montserrat-Thin.ttf */; };
+		9E151E8021CA3AB30071EF2E /* Montserrat-Bold.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 9E151E6D21CA3AB30071EF2E /* Montserrat-Bold.ttf */; };
+		9E151E8121CA3AB30071EF2E /* Montserrat-MediumItalic.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 9E151E6E21CA3AB30071EF2E /* Montserrat-MediumItalic.ttf */; };
+		9E151E8221CA3AB30071EF2E /* Montserrat-BlackItalic.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 9E151E6F21CA3AB30071EF2E /* Montserrat-BlackItalic.ttf */; };
+		9E151E8321CA3AB30071EF2E /* Montserrat-SemiBold.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 9E151E7021CA3AB30071EF2E /* Montserrat-SemiBold.ttf */; };
+		9E151E8421CA3AB30071EF2E /* Montserrat-ExtraLightItalic.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 9E151E7121CA3AB30071EF2E /* Montserrat-ExtraLightItalic.ttf */; };
+		9E151E8521CA3AB30071EF2E /* Montserrat-ExtraBold.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 9E151E7221CA3AB30071EF2E /* Montserrat-ExtraBold.ttf */; };
+		9E151E8621CA3AB30071EF2E /* OFL.txt in Resources */ = {isa = PBXBuildFile; fileRef = 9E151E7321CA3AB30071EF2E /* OFL.txt */; };
+		9E151E8721CA3AB30071EF2E /* Montserrat-Black.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 9E151E7421CA3AB30071EF2E /* Montserrat-Black.ttf */; };
+		9E151E8821CA3AB30071EF2E /* Montserrat-Regular.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 9E151E7521CA3AB30071EF2E /* Montserrat-Regular.ttf */; };
+		9E151E8921CA3AB30071EF2E /* Montserrat-Italic.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 9E151E7621CA3AB30071EF2E /* Montserrat-Italic.ttf */; };
+		9E151E8A21CA3AB30071EF2E /* Montserrat-SemiBoldItalic.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 9E151E7721CA3AB30071EF2E /* Montserrat-SemiBoldItalic.ttf */; };
+		9E151E8B21CA3AB30071EF2E /* Montserrat-ExtraBoldItalic.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 9E151E7821CA3AB30071EF2E /* Montserrat-ExtraBoldItalic.ttf */; };
+		9E151E9221CA42030071EF2E /* Localizable.strings in Resources */ = {isa = PBXBuildFile; fileRef = 9E151E9421CA42030071EF2E /* Localizable.strings */; };
+		9E151E9921CA48680071EF2E /* MainViewController+category.m in Sources */ = {isa = PBXBuildFile; fileRef = 9E151E9821CA48680071EF2E /* MainViewController+category.m */; };
+/* End PBXBuildFile section */
+
+/* Begin PBXFileReference section */
+		1FDEFEA9F96DBA59AC48F93C /* Pods-ReadingDemo-OC.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-ReadingDemo-OC.release.xcconfig"; path = "Pods/Target Support Files/Pods-ReadingDemo-OC/Pods-ReadingDemo-OC.release.xcconfig"; sourceTree = "<group>"; };
+		63B1EAB20DFB5DE753F943B8 /* Pods-ReadingDemo-OC.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-ReadingDemo-OC.debug.xcconfig"; path = "Pods/Target Support Files/Pods-ReadingDemo-OC/Pods-ReadingDemo-OC.debug.xcconfig"; sourceTree = "<group>"; };
+		9E151E3D21CA2CEA0071EF2E /* ReadingDemo-OC.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "ReadingDemo-OC.app"; sourceTree = BUILT_PRODUCTS_DIR; };
+		9E151E4021CA2CEA0071EF2E /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
+		9E151E4121CA2CEA0071EF2E /* AppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AppDelegate.m; sourceTree = "<group>"; };
+		9E151E4321CA2CEA0071EF2E /* ViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ViewController.h; sourceTree = "<group>"; };
+		9E151E4421CA2CEA0071EF2E /* ViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ViewController.m; sourceTree = "<group>"; };
+		9E151E4721CA2CEA0071EF2E /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
+		9E151E4921CA2CEB0071EF2E /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
+		9E151E4C21CA2CEB0071EF2E /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
+		9E151E4E21CA2CEB0071EF2E /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		9E151E4F21CA2CEB0071EF2E /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
+		9E151E5A21CA37B10071EF2E /* LTBaseViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = LTBaseViewController.h; sourceTree = "<group>"; };
+		9E151E5B21CA37B10071EF2E /* LTBaseViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = LTBaseViewController.m; sourceTree = "<group>"; };
+		9E151E6021CA38340071EF2E /* LTServerAPI.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = LTServerAPI.h; sourceTree = "<group>"; };
+		9E151E6121CA38640071EF2E /* MainViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = MainViewController.h; sourceTree = "<group>"; };
+		9E151E6221CA38640071EF2E /* MainViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = MainViewController.m; sourceTree = "<group>"; };
+		9E151E6621CA3AB30071EF2E /* Montserrat-LightItalic.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Montserrat-LightItalic.ttf"; sourceTree = "<group>"; };
+		9E151E6721CA3AB30071EF2E /* Montserrat-Medium.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Montserrat-Medium.ttf"; sourceTree = "<group>"; };
+		9E151E6821CA3AB30071EF2E /* Montserrat-BoldItalic.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Montserrat-BoldItalic.ttf"; sourceTree = "<group>"; };
+		9E151E6921CA3AB30071EF2E /* Montserrat-Light.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Montserrat-Light.ttf"; sourceTree = "<group>"; };
+		9E151E6A21CA3AB30071EF2E /* Montserrat-ThinItalic.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Montserrat-ThinItalic.ttf"; sourceTree = "<group>"; };
+		9E151E6B21CA3AB30071EF2E /* Montserrat-ExtraLight.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Montserrat-ExtraLight.ttf"; sourceTree = "<group>"; };
+		9E151E6C21CA3AB30071EF2E /* Montserrat-Thin.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Montserrat-Thin.ttf"; sourceTree = "<group>"; };
+		9E151E6D21CA3AB30071EF2E /* Montserrat-Bold.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Montserrat-Bold.ttf"; sourceTree = "<group>"; };
+		9E151E6E21CA3AB30071EF2E /* Montserrat-MediumItalic.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Montserrat-MediumItalic.ttf"; sourceTree = "<group>"; };
+		9E151E6F21CA3AB30071EF2E /* Montserrat-BlackItalic.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Montserrat-BlackItalic.ttf"; sourceTree = "<group>"; };
+		9E151E7021CA3AB30071EF2E /* Montserrat-SemiBold.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Montserrat-SemiBold.ttf"; sourceTree = "<group>"; };
+		9E151E7121CA3AB30071EF2E /* Montserrat-ExtraLightItalic.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Montserrat-ExtraLightItalic.ttf"; sourceTree = "<group>"; };
+		9E151E7221CA3AB30071EF2E /* Montserrat-ExtraBold.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Montserrat-ExtraBold.ttf"; sourceTree = "<group>"; };
+		9E151E7321CA3AB30071EF2E /* OFL.txt */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = OFL.txt; sourceTree = "<group>"; };
+		9E151E7421CA3AB30071EF2E /* Montserrat-Black.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Montserrat-Black.ttf"; sourceTree = "<group>"; };
+		9E151E7521CA3AB30071EF2E /* Montserrat-Regular.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Montserrat-Regular.ttf"; sourceTree = "<group>"; };
+		9E151E7621CA3AB30071EF2E /* Montserrat-Italic.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Montserrat-Italic.ttf"; sourceTree = "<group>"; };
+		9E151E7721CA3AB30071EF2E /* Montserrat-SemiBoldItalic.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Montserrat-SemiBoldItalic.ttf"; sourceTree = "<group>"; };
+		9E151E7821CA3AB30071EF2E /* Montserrat-ExtraBoldItalic.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Montserrat-ExtraBoldItalic.ttf"; sourceTree = "<group>"; };
+		9E151E8C21CA41520071EF2E /* zh-Hans */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = "zh-Hans"; path = "zh-Hans.lproj/Main.strings"; sourceTree = "<group>"; };
+		9E151E8D21CA41520071EF2E /* zh-Hans */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = "zh-Hans"; path = "zh-Hans.lproj/LaunchScreen.strings"; sourceTree = "<group>"; };
+		9E151E8E21CA416F0071EF2E /* ja */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = ja; path = ja.lproj/Main.strings; sourceTree = "<group>"; };
+		9E151E8F21CA416F0071EF2E /* ja */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = ja; path = ja.lproj/LaunchScreen.strings; sourceTree = "<group>"; };
+		9E151E9321CA42030071EF2E /* zh-Hans */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = "zh-Hans"; path = "zh-Hans.lproj/Localizable.strings"; sourceTree = "<group>"; };
+		9E151E9521CA423F0071EF2E /* ja */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = ja; path = ja.lproj/Localizable.strings; sourceTree = "<group>"; };
+		9E151E9621CA42410071EF2E /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/Localizable.strings; sourceTree = "<group>"; };
+		9E151E9721CA48680071EF2E /* MainViewController+category.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "MainViewController+category.h"; sourceTree = "<group>"; };
+		9E151E9821CA48680071EF2E /* MainViewController+category.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = "MainViewController+category.m"; sourceTree = "<group>"; };
+		F8544C8A21A16C5FF7FB1425 /* libPods-ReadingDemo-OC.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-ReadingDemo-OC.a"; sourceTree = BUILT_PRODUCTS_DIR; };
+/* End PBXFileReference section */
+
+/* Begin PBXFrameworksBuildPhase section */
+		9E151E3A21CA2CEA0071EF2E /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				8941D6AAB477FAFED1031A1A /* libPods-ReadingDemo-OC.a in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXFrameworksBuildPhase section */
+
+/* Begin PBXGroup section */
+		1F593CF09261D4BEC8CCBFE8 /* Pods */ = {
+			isa = PBXGroup;
+			children = (
+				63B1EAB20DFB5DE753F943B8 /* Pods-ReadingDemo-OC.debug.xcconfig */,
+				1FDEFEA9F96DBA59AC48F93C /* Pods-ReadingDemo-OC.release.xcconfig */,
+			);
+			name = Pods;
+			sourceTree = "<group>";
+		};
+		9E151E3421CA2CEA0071EF2E = {
+			isa = PBXGroup;
+			children = (
+				9E151E3F21CA2CEA0071EF2E /* ReadingDemo-OC */,
+				9E151E3E21CA2CEA0071EF2E /* Products */,
+				1F593CF09261D4BEC8CCBFE8 /* Pods */,
+				A1111A62D754E43E83C99637 /* Frameworks */,
+			);
+			sourceTree = "<group>";
+		};
+		9E151E3E21CA2CEA0071EF2E /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				9E151E3D21CA2CEA0071EF2E /* ReadingDemo-OC.app */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		9E151E3F21CA2CEA0071EF2E /* ReadingDemo-OC */ = {
+			isa = PBXGroup;
+			children = (
+				9E151E5921CA37460071EF2E /* ReadingDemo */,
+				9E151E5821CA37380071EF2E /* Config */,
+				9E151E5721CA36F10071EF2E /* Helpers */,
+				9E151E5621CA36D60071EF2E /* Vendors */,
+				9E151E6421CA3A980071EF2E /* Resource */,
+				9E151E4021CA2CEA0071EF2E /* AppDelegate.h */,
+				9E151E4121CA2CEA0071EF2E /* AppDelegate.m */,
+				9E151E4321CA2CEA0071EF2E /* ViewController.h */,
+				9E151E4421CA2CEA0071EF2E /* ViewController.m */,
+				9E151E4621CA2CEA0071EF2E /* Main.storyboard */,
+				9E151E4921CA2CEB0071EF2E /* Assets.xcassets */,
+				9E151E4B21CA2CEB0071EF2E /* LaunchScreen.storyboard */,
+				9E151E4E21CA2CEB0071EF2E /* Info.plist */,
+				9E151E4F21CA2CEB0071EF2E /* main.m */,
+			);
+			path = "ReadingDemo-OC";
+			sourceTree = "<group>";
+		};
+		9E151E5621CA36D60071EF2E /* Vendors */ = {
+			isa = PBXGroup;
+			children = (
+				9E151E5A21CA37B10071EF2E /* LTBaseViewController.h */,
+				9E151E5B21CA37B10071EF2E /* LTBaseViewController.m */,
+			);
+			path = Vendors;
+			sourceTree = "<group>";
+		};
+		9E151E5721CA36F10071EF2E /* Helpers */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Helpers;
+			sourceTree = "<group>";
+		};
+		9E151E5821CA37380071EF2E /* Config */ = {
+			isa = PBXGroup;
+			children = (
+				9E151E6021CA38340071EF2E /* LTServerAPI.h */,
+			);
+			path = Config;
+			sourceTree = "<group>";
+		};
+		9E151E5921CA37460071EF2E /* ReadingDemo */ = {
+			isa = PBXGroup;
+			children = (
+				9E151E5F21CA37F60071EF2E /* ReadingModel */,
+				9E151E5E21CA37EA0071EF2E /* ReadingView */,
+				9E151E5D21CA37D40071EF2E /* ReadingController */,
+			);
+			path = ReadingDemo;
+			sourceTree = "<group>";
+		};
+		9E151E5D21CA37D40071EF2E /* ReadingController */ = {
+			isa = PBXGroup;
+			children = (
+				9E151E6121CA38640071EF2E /* MainViewController.h */,
+				9E151E6221CA38640071EF2E /* MainViewController.m */,
+				9E151E9721CA48680071EF2E /* MainViewController+category.h */,
+				9E151E9821CA48680071EF2E /* MainViewController+category.m */,
+			);
+			path = ReadingController;
+			sourceTree = "<group>";
+		};
+		9E151E5E21CA37EA0071EF2E /* ReadingView */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = ReadingView;
+			sourceTree = "<group>";
+		};
+		9E151E5F21CA37F60071EF2E /* ReadingModel */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = ReadingModel;
+			sourceTree = "<group>";
+		};
+		9E151E6421CA3A980071EF2E /* Resource */ = {
+			isa = PBXGroup;
+			children = (
+				9E151E6521CA3AB30071EF2E /* Montserrat */,
+				9E151E9421CA42030071EF2E /* Localizable.strings */,
+			);
+			path = Resource;
+			sourceTree = "<group>";
+		};
+		9E151E6521CA3AB30071EF2E /* Montserrat */ = {
+			isa = PBXGroup;
+			children = (
+				9E151E6621CA3AB30071EF2E /* Montserrat-LightItalic.ttf */,
+				9E151E6721CA3AB30071EF2E /* Montserrat-Medium.ttf */,
+				9E151E6821CA3AB30071EF2E /* Montserrat-BoldItalic.ttf */,
+				9E151E6921CA3AB30071EF2E /* Montserrat-Light.ttf */,
+				9E151E6A21CA3AB30071EF2E /* Montserrat-ThinItalic.ttf */,
+				9E151E6B21CA3AB30071EF2E /* Montserrat-ExtraLight.ttf */,
+				9E151E6C21CA3AB30071EF2E /* Montserrat-Thin.ttf */,
+				9E151E6D21CA3AB30071EF2E /* Montserrat-Bold.ttf */,
+				9E151E6E21CA3AB30071EF2E /* Montserrat-MediumItalic.ttf */,
+				9E151E6F21CA3AB30071EF2E /* Montserrat-BlackItalic.ttf */,
+				9E151E7021CA3AB30071EF2E /* Montserrat-SemiBold.ttf */,
+				9E151E7121CA3AB30071EF2E /* Montserrat-ExtraLightItalic.ttf */,
+				9E151E7221CA3AB30071EF2E /* Montserrat-ExtraBold.ttf */,
+				9E151E7321CA3AB30071EF2E /* OFL.txt */,
+				9E151E7421CA3AB30071EF2E /* Montserrat-Black.ttf */,
+				9E151E7521CA3AB30071EF2E /* Montserrat-Regular.ttf */,
+				9E151E7621CA3AB30071EF2E /* Montserrat-Italic.ttf */,
+				9E151E7721CA3AB30071EF2E /* Montserrat-SemiBoldItalic.ttf */,
+				9E151E7821CA3AB30071EF2E /* Montserrat-ExtraBoldItalic.ttf */,
+			);
+			path = Montserrat;
+			sourceTree = "<group>";
+		};
+		A1111A62D754E43E83C99637 /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				F8544C8A21A16C5FF7FB1425 /* libPods-ReadingDemo-OC.a */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
+/* End PBXGroup section */
+
+/* Begin PBXNativeTarget section */
+		9E151E3C21CA2CEA0071EF2E /* ReadingDemo-OC */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 9E151E5321CA2CEB0071EF2E /* Build configuration list for PBXNativeTarget "ReadingDemo-OC" */;
+			buildPhases = (
+				41F289ED3DD3E153FE1D3095 /* [CP] Check Pods Manifest.lock */,
+				9E151E3921CA2CEA0071EF2E /* Sources */,
+				9E151E3A21CA2CEA0071EF2E /* Frameworks */,
+				9E151E3B21CA2CEA0071EF2E /* Resources */,
+				3C8A608901450B7264599013 /* [CP] Copy Pods Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = "ReadingDemo-OC";
+			productName = "ReadingDemo-OC";
+			productReference = 9E151E3D21CA2CEA0071EF2E /* ReadingDemo-OC.app */;
+			productType = "com.apple.product-type.application";
+		};
+/* End PBXNativeTarget section */
+
+/* Begin PBXProject section */
+		9E151E3521CA2CEA0071EF2E /* Project object */ = {
+			isa = PBXProject;
+			attributes = {
+				LastUpgradeCheck = 1010;
+				ORGANIZATIONNAME = "西安乐推网络科技有限公司";
+				TargetAttributes = {
+					9E151E3C21CA2CEA0071EF2E = {
+						CreatedOnToolsVersion = 10.1;
+					};
+				};
+			};
+			buildConfigurationList = 9E151E3821CA2CEA0071EF2E /* Build configuration list for PBXProject "ReadingDemo-OC" */;
+			compatibilityVersion = "Xcode 9.3";
+			developmentRegion = en;
+			hasScannedForEncodings = 0;
+			knownRegions = (
+				en,
+				Base,
+				ja,
+			);
+			mainGroup = 9E151E3421CA2CEA0071EF2E;
+			productRefGroup = 9E151E3E21CA2CEA0071EF2E /* Products */;
+			projectDirPath = "";
+			projectRoot = "";
+			targets = (
+				9E151E3C21CA2CEA0071EF2E /* ReadingDemo-OC */,
+			);
+		};
+/* End PBXProject section */
+
+/* Begin PBXResourcesBuildPhase section */
+		9E151E3B21CA2CEA0071EF2E /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				9E151E8A21CA3AB30071EF2E /* Montserrat-SemiBoldItalic.ttf in Resources */,
+				9E151E8621CA3AB30071EF2E /* OFL.txt in Resources */,
+				9E151E9221CA42030071EF2E /* Localizable.strings in Resources */,
+				9E151E7F21CA3AB30071EF2E /* Montserrat-Thin.ttf in Resources */,
+				9E151E7C21CA3AB30071EF2E /* Montserrat-Light.ttf in Resources */,
+				9E151E8421CA3AB30071EF2E /* Montserrat-ExtraLightItalic.ttf in Resources */,
+				9E151E7B21CA3AB30071EF2E /* Montserrat-BoldItalic.ttf in Resources */,
+				9E151E7D21CA3AB30071EF2E /* Montserrat-ThinItalic.ttf in Resources */,
+				9E151E8521CA3AB30071EF2E /* Montserrat-ExtraBold.ttf in Resources */,
+				9E151E8821CA3AB30071EF2E /* Montserrat-Regular.ttf in Resources */,
+				9E151E7921CA3AB30071EF2E /* Montserrat-LightItalic.ttf in Resources */,
+				9E151E7E21CA3AB30071EF2E /* Montserrat-ExtraLight.ttf in Resources */,
+				9E151E7A21CA3AB30071EF2E /* Montserrat-Medium.ttf in Resources */,
+				9E151E4D21CA2CEB0071EF2E /* LaunchScreen.storyboard in Resources */,
+				9E151E4A21CA2CEB0071EF2E /* Assets.xcassets in Resources */,
+				9E151E8221CA3AB30071EF2E /* Montserrat-BlackItalic.ttf in Resources */,
+				9E151E8321CA3AB30071EF2E /* Montserrat-SemiBold.ttf in Resources */,
+				9E151E8921CA3AB30071EF2E /* Montserrat-Italic.ttf in Resources */,
+				9E151E8021CA3AB30071EF2E /* Montserrat-Bold.ttf in Resources */,
+				9E151E8121CA3AB30071EF2E /* Montserrat-MediumItalic.ttf in Resources */,
+				9E151E4821CA2CEA0071EF2E /* Main.storyboard in Resources */,
+				9E151E8721CA3AB30071EF2E /* Montserrat-Black.ttf in Resources */,
+				9E151E8B21CA3AB30071EF2E /* Montserrat-ExtraBoldItalic.ttf in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXResourcesBuildPhase section */
+
+/* Begin PBXShellScriptBuildPhase section */
+		3C8A608901450B7264599013 /* [CP] Copy Pods Resources */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+				"${SRCROOT}/Pods/Target Support Files/Pods-ReadingDemo-OC/Pods-ReadingDemo-OC-resources.sh",
+				"${PODS_ROOT}/MJRefresh/MJRefresh/MJRefresh.bundle",
+			);
+			name = "[CP] Copy Pods Resources";
+			outputPaths = (
+				"${TARGET_BUILD_DIR}/${UNLOCALIZED_RESOURCES_FOLDER_PATH}/MJRefresh.bundle",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-ReadingDemo-OC/Pods-ReadingDemo-OC-resources.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		41F289ED3DD3E153FE1D3095 /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
+				"${PODS_ROOT}/Manifest.lock",
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputPaths = (
+				"$(DERIVED_FILE_DIR)/Pods-ReadingDemo-OC-checkManifestLockResult.txt",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
+			showEnvVarsInLog = 0;
+		};
+/* End PBXShellScriptBuildPhase section */
+
+/* Begin PBXSourcesBuildPhase section */
+		9E151E3921CA2CEA0071EF2E /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				9E151E4521CA2CEA0071EF2E /* ViewController.m in Sources */,
+				9E151E5021CA2CEB0071EF2E /* main.m in Sources */,
+				9E151E4221CA2CEA0071EF2E /* AppDelegate.m in Sources */,
+				9E151E6321CA38640071EF2E /* MainViewController.m in Sources */,
+				9E151E5C21CA37B10071EF2E /* LTBaseViewController.m in Sources */,
+				9E151E9921CA48680071EF2E /* MainViewController+category.m in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXSourcesBuildPhase section */
+
+/* Begin PBXVariantGroup section */
+		9E151E4621CA2CEA0071EF2E /* Main.storyboard */ = {
+			isa = PBXVariantGroup;
+			children = (
+				9E151E4721CA2CEA0071EF2E /* Base */,
+				9E151E8C21CA41520071EF2E /* zh-Hans */,
+				9E151E8E21CA416F0071EF2E /* ja */,
+			);
+			name = Main.storyboard;
+			sourceTree = "<group>";
+		};
+		9E151E4B21CA2CEB0071EF2E /* LaunchScreen.storyboard */ = {
+			isa = PBXVariantGroup;
+			children = (
+				9E151E4C21CA2CEB0071EF2E /* Base */,
+				9E151E8D21CA41520071EF2E /* zh-Hans */,
+				9E151E8F21CA416F0071EF2E /* ja */,
+			);
+			name = LaunchScreen.storyboard;
+			sourceTree = "<group>";
+		};
+		9E151E9421CA42030071EF2E /* Localizable.strings */ = {
+			isa = PBXVariantGroup;
+			children = (
+				9E151E9321CA42030071EF2E /* zh-Hans */,
+				9E151E9521CA423F0071EF2E /* ja */,
+				9E151E9621CA42410071EF2E /* en */,
+			);
+			name = Localizable.strings;
+			sourceTree = "<group>";
+		};
+/* End PBXVariantGroup section */
+
+/* Begin XCBuildConfiguration section */
+		9E151E5121CA2CEB0071EF2E /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_LOCALIZABILITY_NONLOCALIZED = YES;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++14";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_ENABLE_OBJC_WEAK = YES;
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_COMMA = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DEPRECATED_OBJC_IMPLEMENTATIONS = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				CODE_SIGN_IDENTITY = "iPhone Developer";
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = dwarf;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				ENABLE_TESTABILITY = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu11;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 12.1;
+				MTL_ENABLE_DEBUG_INFO = INCLUDE_SOURCE;
+				MTL_FAST_MATH = YES;
+				ONLY_ACTIVE_ARCH = YES;
+				SDKROOT = iphoneos;
+			};
+			name = Debug;
+		};
+		9E151E5221CA2CEB0071EF2E /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_LOCALIZABILITY_NONLOCALIZED = YES;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++14";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_ENABLE_OBJC_WEAK = YES;
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_COMMA = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DEPRECATED_OBJC_IMPLEMENTATIONS = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				CODE_SIGN_IDENTITY = "iPhone Developer";
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				ENABLE_NS_ASSERTIONS = NO;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu11;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 12.1;
+				MTL_ENABLE_DEBUG_INFO = NO;
+				MTL_FAST_MATH = YES;
+				SDKROOT = iphoneos;
+				VALIDATE_PRODUCT = YES;
+			};
+			name = Release;
+		};
+		9E151E5421CA2CEB0071EF2E /* Debug */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = 63B1EAB20DFB5DE753F943B8 /* Pods-ReadingDemo-OC.debug.xcconfig */;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = 5FHR5TCA36;
+				INFOPLIST_FILE = "ReadingDemo-OC/Info.plist";
+				IPHONEOS_DEPLOYMENT_TARGET = 9.0;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = "------------.ReadingDemo-OC";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				TARGETED_DEVICE_FAMILY = 1;
+			};
+			name = Debug;
+		};
+		9E151E5521CA2CEB0071EF2E /* Release */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = 1FDEFEA9F96DBA59AC48F93C /* Pods-ReadingDemo-OC.release.xcconfig */;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = 5FHR5TCA36;
+				INFOPLIST_FILE = "ReadingDemo-OC/Info.plist";
+				IPHONEOS_DEPLOYMENT_TARGET = 9.0;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = "------------.ReadingDemo-OC";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				TARGETED_DEVICE_FAMILY = 1;
+			};
+			name = Release;
+		};
+/* End XCBuildConfiguration section */
+
+/* Begin XCConfigurationList section */
+		9E151E3821CA2CEA0071EF2E /* Build configuration list for PBXProject "ReadingDemo-OC" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				9E151E5121CA2CEB0071EF2E /* Debug */,
+				9E151E5221CA2CEB0071EF2E /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		9E151E5321CA2CEB0071EF2E /* Build configuration list for PBXNativeTarget "ReadingDemo-OC" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				9E151E5421CA2CEB0071EF2E /* Debug */,
+				9E151E5521CA2CEB0071EF2E /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+/* End XCConfigurationList section */
+	};
+	rootObject = 9E151E3521CA2CEA0071EF2E /* Project object */;
+}
