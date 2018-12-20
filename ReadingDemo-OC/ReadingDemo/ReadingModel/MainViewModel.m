@@ -21,7 +21,7 @@
         self.listCommand = [[RACCommand alloc]initWithSignalBlock:^RACSignal * _Nonnull(id  _Nullable input) {
            
             //步骤二:创建信号,用来传递数据
-            RACSignal *signal = [[LTserverManger shareServerManger]postRecommendListDatafromServer:100];
+            RACSignal *signal = [[LTserverManger shareServerManger]postRecommendListDatafromServer:200];
 
             return signal;
         }];
