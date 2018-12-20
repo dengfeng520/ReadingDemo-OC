@@ -8,6 +8,7 @@
 
 #import "MainViewController+category.h"
 #import "MainCollectionCell.h"
+#import "UIImageView+WebCache.h"
 
 static NSString * const MainCollectionCellID = @"MainCollectionCellID";
 
@@ -26,7 +27,7 @@ static NSString * const MainCollectionCellID = @"MainCollectionCellID";
 
 -(NSInteger)collectionView:(UICollectionView *)collectionView numberOfItemsInSection:(NSInteger)section{
     
-    return 10086;
+    return self.bookList.count;
 }
 
 - (UICollectionViewCell *)collectionView:(UICollectionView *)collectionView cellForItemAtIndexPath:(NSIndexPath *)indexPath{
@@ -34,7 +35,10 @@ static NSString * const MainCollectionCellID = @"MainCollectionCellID";
     MainCollectionCell *cell = [collectionView dequeueReusableCellWithReuseIdentifier:MainCollectionCellID forIndexPath:indexPath];
     cell.backgroundColor = [UIColor whiteColor];
     
-    
+    //=============================
+    NSArray *imgList = self.bookList[indexPath.row][@"im:image"];
+    [cell.bookImg sd_setImageWithURL:[NSURL URLWithString:[NSString stringWithFormat:@"%@",imgList.lastObject[@"label"]]] placeholderImage:[UIImage imageNamed:@"Placeholder"]];
+    //=============================
     
     return cell;
     

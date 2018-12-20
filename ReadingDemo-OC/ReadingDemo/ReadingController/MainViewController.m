@@ -25,8 +25,11 @@
     //步骤四:订阅信号量
     [[[self.viewModel.listCommand executionSignals]switchToLatest]subscribeNext:^(id  _Nullable x) {
        
-        NSLog(@"=============%@",x);
-
+        if([[x allKeys]containsObject:@"feed"]){
+            NSDictionary *hashMap = [x objectForKey:@"feed"];
+            weakSelf.bookList = hashMap[@"entry"];
+            [weakSelf.listView reloadData];
+        }
     }];
     
     //步骤三:执行命令
@@ -45,6 +48,8 @@
         [self.view addSubview:_listView];
         _listView.delegate = self;
         _listView.dataSource = self;
+        _listView.showsVerticalScrollIndicator = false;
+        _listView.showsHorizontalScrollIndicator = false;
         _listView.backgroundColor = [UIColor whiteColor];
         [_listView mas_makeConstraints:^(MASConstraintMaker *make) {
             make.edges.equalTo(weakSelf.view).with.insets(UIEdgeInsetsMake(0, 15, 0, 15));
@@ -60,6 +65,12 @@
     return _viewModel;
 }
 
+-(NSMutableArray *)bookList{
+    if(_bookList == nil){
+        _bookList = [NSMutableArray array];
+    }
+    return _bookList;
+}
 
 
 @end

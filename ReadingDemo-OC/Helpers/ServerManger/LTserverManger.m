@@ -55,6 +55,7 @@ static dispatch_once_t onceToken;
     return [super alloc];
 }
 
+// POST
 - (NSURLSessionDataTask *)POST:(NSString *)api paramters:(NSDictionary *)paramters completion:(LTResponseBlock)completion{
     
     NSURLSessionDataTask *dataTask = [_sessionManager POST:api parameters:paramters progress:^(NSProgress * _Nonnull uploadProgress) {
@@ -78,7 +79,7 @@ static dispatch_once_t onceToken;
     return dataTask;
 }
 
-//MARK: -（POST）
+//MARK: - POST
 -(RACSignal *)postSignalWithAPI:(NSString *)api paramters:(NSDictionary *)parameters{
     
     NSString *apiURLString = [NSString stringWithFormat:@"%@",api];

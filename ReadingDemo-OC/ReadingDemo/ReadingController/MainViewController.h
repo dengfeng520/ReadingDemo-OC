@@ -18,6 +18,8 @@ NS_ASSUME_NONNULL_BEGIN
 @property (strong, nonatomic) UICollectionView *listView;
 ///
 @property (strong, nonatomic) MainViewModel *viewModel;
+///
+@property (strong, nonatomic) NSMutableArray *bookList;
 
 @end
 
