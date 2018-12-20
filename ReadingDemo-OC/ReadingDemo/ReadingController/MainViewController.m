@@ -29,7 +29,7 @@
     if(_listView == nil){
         __weak typeof (self) weakSelf = self;
         UICollectionViewFlowLayout *layout = [[UICollectionViewFlowLayout alloc] init];
-        layout.itemSize = CGSizeMake(self.view.frame.size.width, self.view.frame.size.height);
+        layout.itemSize = CGSizeMake(self.view.frame.size.width - 30, self.view.frame.size.height);
         layout.sectionInset = UIEdgeInsetsMake(0, 0, 0, 0);
         _listView = [[UICollectionView alloc]initWithFrame:CGRectZero collectionViewLayout:layout];
         [self.view addSubview:_listView];
@@ -37,7 +37,7 @@
         _listView.dataSource = self;
         _listView.backgroundColor = [UIColor whiteColor];
         [_listView mas_makeConstraints:^(MASConstraintMaker *make) {
-            make.edges.equalTo(weakSelf.view).with.insets(UIEdgeInsetsMake(0, 0, 0, 0));
+            make.edges.equalTo(weakSelf.view).with.insets(UIEdgeInsetsMake(0, 15, 0, 15));
         }];
     }
     return _listView;

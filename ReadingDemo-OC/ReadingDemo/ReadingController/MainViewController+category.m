@@ -42,9 +42,9 @@ static NSString * const MainCollectionCellID = @"MainCollectionCellID";
 
 - (CGSize)collectionView:(UICollectionView *)collectionView layout:(UICollectionViewLayout *)collectionViewLayout sizeForItemAtIndexPath:(NSIndexPath *)indexPath{
     
-    CGFloat cellWidth = self.view.frame.size.width / 3 - 4;
+    CGFloat cellWidth = self.listView.frame.size.width / 3 - 4;
 
-    return CGSizeMake(cellWidth, cellWidth + 100);
+    return CGSizeMake(cellWidth, cellWidth * 2.2);
 }
 
 -(UIEdgeInsets)collectionView:(UICollectionView *)collectionView layout:(UICollectionViewLayout *)collectionViewLayout insetForSectionAtIndex:(NSInteger)section{
