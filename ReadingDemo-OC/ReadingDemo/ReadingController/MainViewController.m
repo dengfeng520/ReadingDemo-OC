@@ -24,14 +24,12 @@
     __weak typeof (self) weakSelf = self;
     //步骤四:订阅信号量
     [[[self.viewModel.listCommand executionSignals]switchToLatest]subscribeNext:^(id  _Nullable x) {
-       
         if([[x allKeys]containsObject:@"feed"]){
             NSDictionary *hashMap = [x objectForKey:@"feed"];
             weakSelf.bookList = hashMap[@"entry"];
             [weakSelf.listView reloadData];
         }
     }];
-    
     //步骤三:执行命令
     [weakSelf.viewModel.listCommand execute:nil];
 }
