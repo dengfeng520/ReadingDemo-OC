@@ -7,12 +7,17 @@
 //
 
 #import "LTBaseViewController.h"
+#import "Masonry.h"
+#import "ReactiveObjC.h"
+#import "MainViewModel.h"
 
 NS_ASSUME_NONNULL_BEGIN
 
 @interface MainViewController : LTBaseViewController<UICollectionViewDelegate,UICollectionViewDataSource>
 
 @property (strong, nonatomic) UICollectionView *listView;
+///
+@property (strong, nonatomic) MainViewModel *viewModel;
 
 @end
 

@@ -7,7 +7,6 @@
 //
 
 #import "MainViewController.h"
-#import "Masonry.h"
 
 @interface MainViewController ()
 
@@ -21,6 +20,17 @@
     // Do any additional setup after loading the view.
     
     self.title = NSLocalizedString(@"bookshelf",  @"description for this key.");
+
+    __weak typeof (self) weakSelf = self;
+    //步骤四:订阅信号量
+    [[[self.viewModel.listCommand executionSignals]switchToLatest]subscribeNext:^(id  _Nullable x) {
+       
+        NSLog(@"=============%@",x);
+
+    }];
+    
+    //步骤三:执行命令
+    [weakSelf.viewModel.listCommand execute:nil];
 }
 
 
@@ -41,6 +51,13 @@
         }];
     }
     return _listView;
+}
+
+-(MainViewModel *)viewModel{
+    if(_viewModel == nil){
+        _viewModel = [[MainViewModel alloc]init];
+    }
+    return _viewModel;
 }
 
 
