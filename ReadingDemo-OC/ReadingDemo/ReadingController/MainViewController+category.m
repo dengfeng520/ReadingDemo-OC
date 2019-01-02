@@ -15,7 +15,7 @@ static NSString * const MainCollectionCellID = @"MainCollectionCellID";
 
 -(void)loadView{
     [super loadView];
-    
+    //注册Cell
     [self.listView registerClass:[MainCollectionCell class] forCellWithReuseIdentifier:MainCollectionCellID];
 }
 
@@ -33,7 +33,6 @@ static NSString * const MainCollectionCellID = @"MainCollectionCellID";
     
     MainCollectionCell *cell = [collectionView dequeueReusableCellWithReuseIdentifier:MainCollectionCellID forIndexPath:indexPath];
     cell.backgroundColor = [UIColor whiteColor];
-    
     
     
     return cell;
