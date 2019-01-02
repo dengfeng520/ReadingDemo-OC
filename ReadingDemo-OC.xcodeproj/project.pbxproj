@@ -7,6 +7,9 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		1C2858CB21CB4CC900559787 /* MainViewModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 1C2858CA21CB4CC900559787 /* MainViewModel.m */; };
+		1C2858D221CB4EED00559787 /* LTserverManger.m in Sources */ = {isa = PBXBuildFile; fileRef = 1C2858D121CB4EED00559787 /* LTserverManger.m */; };
+		1C2858D521CB76F900559787 /* LTserverManger+category.m in Sources */ = {isa = PBXBuildFile; fileRef = 1C2858D421CB76F900559787 /* LTserverManger+category.m */; };
 		8941D6AAB477FAFED1031A1A /* libPods-ReadingDemo-OC.a in Frameworks */ = {isa = PBXBuildFile; fileRef = F8544C8A21A16C5FF7FB1425 /* libPods-ReadingDemo-OC.a */; };
 		9E151E4221CA2CEA0071EF2E /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 9E151E4121CA2CEA0071EF2E /* AppDelegate.m */; };
 		9E151E4521CA2CEA0071EF2E /* ViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 9E151E4421CA2CEA0071EF2E /* ViewController.m */; };
@@ -41,6 +44,12 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		1C2858C921CB4CC900559787 /* MainViewModel.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = MainViewModel.h; sourceTree = "<group>"; };
+		1C2858CA21CB4CC900559787 /* MainViewModel.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = MainViewModel.m; sourceTree = "<group>"; };
+		1C2858D021CB4EED00559787 /* LTserverManger.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = LTserverManger.h; sourceTree = "<group>"; };
+		1C2858D121CB4EED00559787 /* LTserverManger.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = LTserverManger.m; sourceTree = "<group>"; };
+		1C2858D321CB76F900559787 /* LTserverManger+category.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "LTserverManger+category.h"; sourceTree = "<group>"; };
+		1C2858D421CB76F900559787 /* LTserverManger+category.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = "LTserverManger+category.m"; sourceTree = "<group>"; };
 		1FDEFEA9F96DBA59AC48F93C /* Pods-ReadingDemo-OC.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-ReadingDemo-OC.release.xcconfig"; path = "Pods/Target Support Files/Pods-ReadingDemo-OC/Pods-ReadingDemo-OC.release.xcconfig"; sourceTree = "<group>"; };
 		63B1EAB20DFB5DE753F943B8 /* Pods-ReadingDemo-OC.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-ReadingDemo-OC.debug.xcconfig"; path = "Pods/Target Support Files/Pods-ReadingDemo-OC/Pods-ReadingDemo-OC.debug.xcconfig"; sourceTree = "<group>"; };
 		9E151E3D21CA2CEA0071EF2E /* ReadingDemo-OC.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "ReadingDemo-OC.app"; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -103,6 +112,17 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		1C2858CF21CB4ED200559787 /* ServerManger */ = {
+			isa = PBXGroup;
+			children = (
+				1C2858D021CB4EED00559787 /* LTserverManger.h */,
+				1C2858D121CB4EED00559787 /* LTserverManger.m */,
+				1C2858D321CB76F900559787 /* LTserverManger+category.h */,
+				1C2858D421CB76F900559787 /* LTserverManger+category.m */,
+			);
+			path = ServerManger;
+			sourceTree = "<group>";
+		};
 		1F593CF09261D4BEC8CCBFE8 /* Pods */ = {
 			isa = PBXGroup;
 			children = (
@@ -163,6 +183,7 @@
 		9E151E5721CA36F10071EF2E /* Helpers */ = {
 			isa = PBXGroup;
 			children = (
+				1C2858CF21CB4ED200559787 /* ServerManger */,
 			);
 			path = Helpers;
 			sourceTree = "<group>";
@@ -208,6 +229,8 @@
 		9E151E5F21CA37F60071EF2E /* ReadingModel */ = {
 			isa = PBXGroup;
 			children = (
+				1C2858C921CB4CC900559787 /* MainViewModel.h */,
+				1C2858CA21CB4CC900559787 /* MainViewModel.m */,
 			);
 			path = ReadingModel;
 			sourceTree = "<group>";
@@ -389,8 +412,11 @@
 			files = (
 				9E151E4521CA2CEA0071EF2E /* ViewController.m in Sources */,
 				9E151E9C21CA54230071EF2E /* MainCollectionCell.m in Sources */,
+				1C2858D521CB76F900559787 /* LTserverManger+category.m in Sources */,
 				9E151E5021CA2CEB0071EF2E /* main.m in Sources */,
+				1C2858CB21CB4CC900559787 /* MainViewModel.m in Sources */,
 				9E151E4221CA2CEA0071EF2E /* AppDelegate.m in Sources */,
+				1C2858D221CB4EED00559787 /* LTserverManger.m in Sources */,
 				9E151E6321CA38640071EF2E /* MainViewController.m in Sources */,
 				9E151E5C21CA37B10071EF2E /* LTBaseViewController.m in Sources */,
 				9E151E9921CA48680071EF2E /* MainViewController+category.m in Sources */,

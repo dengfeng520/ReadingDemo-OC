@@ -12,6 +12,11 @@ NS_ASSUME_NONNULL_BEGIN
 
 @interface MainCollectionCell : UICollectionViewCell
 
+///
+@property (strong, nonatomic) UIImageView *bookImg;
+///
+@property (strong, nonatomic) UILabel *bookNameLab;
+
 @end
 
 NS_ASSUME_NONNULL_END
