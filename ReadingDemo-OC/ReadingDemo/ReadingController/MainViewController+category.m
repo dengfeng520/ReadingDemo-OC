@@ -19,9 +19,6 @@ static NSString * const MainCollectionCellID = @"MainCollectionCellID";
 
 -(void)loadView{
     [super loadView];
-<<<<<<< HEAD
-    //注册Cell
-=======
     
     self.maxTaskCount = 21;
     //
@@ -33,8 +30,7 @@ static NSString * const MainCollectionCellID = @"MainCollectionCellID";
     
     //添加runloop观察者
     [self addRunloopObserver];
-    
->>>>>>> 72090c6f2a78a15b29e04750f3ec23fb78366da3
+    //注册Cell
     [self.listView registerClass:[MainCollectionCell class] forCellWithReuseIdentifier:MainCollectionCellID];
 }
 
@@ -52,9 +48,7 @@ static NSString * const MainCollectionCellID = @"MainCollectionCellID";
     
     MainCollectionCell *cell = [collectionView dequeueReusableCellWithReuseIdentifier:MainCollectionCellID forIndexPath:indexPath];
     cell.backgroundColor = [UIColor whiteColor];
-<<<<<<< HEAD
-    
-=======
+
     __weak typeof (self) weakSelf = self;
     // 耗时操作可以放在任务中
 //    [self addTask:^{
@@ -64,7 +58,6 @@ static NSString * const MainCollectionCellID = @"MainCollectionCellID";
         [cell.bookImg sd_setImageWithURL:imgURL placeholderImage:[UIImage imageNamed:@"Placeholder"]];
 //    }];
     //=============================
->>>>>>> 72090c6f2a78a15b29e04750f3ec23fb78366da3
     
     return cell;
     
