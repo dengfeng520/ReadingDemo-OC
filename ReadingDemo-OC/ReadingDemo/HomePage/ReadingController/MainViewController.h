@@ -20,12 +20,7 @@ NS_ASSUME_NONNULL_BEGIN
 @property (strong, nonatomic) MainViewModel *viewModel;
 ///
 @property (strong, nonatomic) NSMutableArray *bookList;
-///
-@property (nonatomic,strong) NSTimer * timer;
-//任务数组
-@property (nonatomic,strong) NSMutableArray * tasks;
-// 最大任务数
-@property (nonatomic, assign) NSUInteger maxTaskCount;
+
 
 
 @end

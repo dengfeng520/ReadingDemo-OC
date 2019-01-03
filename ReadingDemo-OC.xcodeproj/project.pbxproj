@@ -7,7 +7,6 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		1C2858CB21CB4CC900559787 /* MainViewModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 1C2858CA21CB4CC900559787 /* MainViewModel.m */; };
 		1C2858D221CB4EED00559787 /* LTserverManger.m in Sources */ = {isa = PBXBuildFile; fileRef = 1C2858D121CB4EED00559787 /* LTserverManger.m */; };
 		1C2858D521CB76F900559787 /* LTserverManger+category.m in Sources */ = {isa = PBXBuildFile; fileRef = 1C2858D421CB76F900559787 /* LTserverManger+category.m */; };
 		8941D6AAB477FAFED1031A1A /* libPods-ReadingDemo-OC.a in Frameworks */ = {isa = PBXBuildFile; fileRef = F8544C8A21A16C5FF7FB1425 /* libPods-ReadingDemo-OC.a */; };
@@ -18,7 +17,6 @@
 		9E151E4D21CA2CEB0071EF2E /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 9E151E4B21CA2CEB0071EF2E /* LaunchScreen.storyboard */; };
 		9E151E5021CA2CEB0071EF2E /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 9E151E4F21CA2CEB0071EF2E /* main.m */; };
 		9E151E5C21CA37B10071EF2E /* LTBaseViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 9E151E5B21CA37B10071EF2E /* LTBaseViewController.m */; };
-		9E151E6321CA38640071EF2E /* MainViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 9E151E6221CA38640071EF2E /* MainViewController.m */; };
 		9E151E7921CA3AB30071EF2E /* Montserrat-LightItalic.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 9E151E6621CA3AB30071EF2E /* Montserrat-LightItalic.ttf */; };
 		9E151E7A21CA3AB30071EF2E /* Montserrat-Medium.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 9E151E6721CA3AB30071EF2E /* Montserrat-Medium.ttf */; };
 		9E151E7B21CA3AB30071EF2E /* Montserrat-BoldItalic.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 9E151E6821CA3AB30071EF2E /* Montserrat-BoldItalic.ttf */; };
@@ -39,13 +37,17 @@
 		9E151E8A21CA3AB30071EF2E /* Montserrat-SemiBoldItalic.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 9E151E7721CA3AB30071EF2E /* Montserrat-SemiBoldItalic.ttf */; };
 		9E151E8B21CA3AB30071EF2E /* Montserrat-ExtraBoldItalic.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 9E151E7821CA3AB30071EF2E /* Montserrat-ExtraBoldItalic.ttf */; };
 		9E151E9221CA42030071EF2E /* Localizable.strings in Resources */ = {isa = PBXBuildFile; fileRef = 9E151E9421CA42030071EF2E /* Localizable.strings */; };
-		9E151E9921CA48680071EF2E /* MainViewController+category.m in Sources */ = {isa = PBXBuildFile; fileRef = 9E151E9821CA48680071EF2E /* MainViewController+category.m */; };
-		9E151E9C21CA54230071EF2E /* MainCollectionCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 9E151E9B21CA54230071EF2E /* MainCollectionCell.m */; };
+		9E90DD6821DDECFF00CFC6F8 /* MainCollectionCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 9E90DD5B21DDECFF00CFC6F8 /* MainCollectionCell.m */; };
+		9E90DD6921DDECFF00CFC6F8 /* MainViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 9E90DD5E21DDECFF00CFC6F8 /* MainViewController.m */; };
+		9E90DD6A21DDECFF00CFC6F8 /* MainViewController+category.m in Sources */ = {isa = PBXBuildFile; fileRef = 9E90DD5F21DDECFF00CFC6F8 /* MainViewController+category.m */; };
+		9E90DD6C21DDECFF00CFC6F8 /* ReadModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 9E90DD6421DDECFF00CFC6F8 /* ReadModel.m */; };
+		9E90DD7321DDED8F00CFC6F8 /* MainViewModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 9E90DD7121DDED8F00CFC6F8 /* MainViewModel.m */; };
+		9E90DD7921DDEDC500CFC6F8 /* BookViewModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 9E90DD7821DDEDC500CFC6F8 /* BookViewModel.m */; };
+		9E90DD7C21DDEDD000CFC6F8 /* BookModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 9E90DD7B21DDEDD000CFC6F8 /* BookModel.m */; };
+		9E90DD7F21DDEE5600CFC6F8 /* BookPageController.m in Sources */ = {isa = PBXBuildFile; fileRef = 9E90DD7E21DDEE5600CFC6F8 /* BookPageController.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
-		1C2858C921CB4CC900559787 /* MainViewModel.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = MainViewModel.h; sourceTree = "<group>"; };
-		1C2858CA21CB4CC900559787 /* MainViewModel.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = MainViewModel.m; sourceTree = "<group>"; };
 		1C2858D021CB4EED00559787 /* LTserverManger.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = LTserverManger.h; sourceTree = "<group>"; };
 		1C2858D121CB4EED00559787 /* LTserverManger.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = LTserverManger.m; sourceTree = "<group>"; };
 		1C2858D321CB76F900559787 /* LTserverManger+category.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "LTserverManger+category.h"; sourceTree = "<group>"; };
@@ -65,8 +67,6 @@
 		9E151E5A21CA37B10071EF2E /* LTBaseViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = LTBaseViewController.h; sourceTree = "<group>"; };
 		9E151E5B21CA37B10071EF2E /* LTBaseViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = LTBaseViewController.m; sourceTree = "<group>"; };
 		9E151E6021CA38340071EF2E /* LTServerAPI.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = LTServerAPI.h; sourceTree = "<group>"; };
-		9E151E6121CA38640071EF2E /* MainViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = MainViewController.h; sourceTree = "<group>"; };
-		9E151E6221CA38640071EF2E /* MainViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = MainViewController.m; sourceTree = "<group>"; };
 		9E151E6621CA3AB30071EF2E /* Montserrat-LightItalic.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Montserrat-LightItalic.ttf"; sourceTree = "<group>"; };
 		9E151E6721CA3AB30071EF2E /* Montserrat-Medium.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Montserrat-Medium.ttf"; sourceTree = "<group>"; };
 		9E151E6821CA3AB30071EF2E /* Montserrat-BoldItalic.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Montserrat-BoldItalic.ttf"; sourceTree = "<group>"; };
@@ -93,10 +93,22 @@
 		9E151E9321CA42030071EF2E /* zh-Hans */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = "zh-Hans"; path = "zh-Hans.lproj/Localizable.strings"; sourceTree = "<group>"; };
 		9E151E9521CA423F0071EF2E /* ja */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = ja; path = ja.lproj/Localizable.strings; sourceTree = "<group>"; };
 		9E151E9621CA42410071EF2E /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/Localizable.strings; sourceTree = "<group>"; };
-		9E151E9721CA48680071EF2E /* MainViewController+category.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "MainViewController+category.h"; sourceTree = "<group>"; };
-		9E151E9821CA48680071EF2E /* MainViewController+category.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = "MainViewController+category.m"; sourceTree = "<group>"; };
-		9E151E9A21CA54230071EF2E /* MainCollectionCell.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = MainCollectionCell.h; sourceTree = "<group>"; };
-		9E151E9B21CA54230071EF2E /* MainCollectionCell.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = MainCollectionCell.m; sourceTree = "<group>"; };
+		9E90DD5A21DDECFF00CFC6F8 /* MainCollectionCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MainCollectionCell.h; sourceTree = "<group>"; };
+		9E90DD5B21DDECFF00CFC6F8 /* MainCollectionCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MainCollectionCell.m; sourceTree = "<group>"; };
+		9E90DD5D21DDECFF00CFC6F8 /* MainViewController+category.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "MainViewController+category.h"; sourceTree = "<group>"; };
+		9E90DD5E21DDECFF00CFC6F8 /* MainViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MainViewController.m; sourceTree = "<group>"; };
+		9E90DD5F21DDECFF00CFC6F8 /* MainViewController+category.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "MainViewController+category.m"; sourceTree = "<group>"; };
+		9E90DD6021DDECFF00CFC6F8 /* MainViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MainViewController.h; sourceTree = "<group>"; };
+		9E90DD6421DDECFF00CFC6F8 /* ReadModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ReadModel.m; sourceTree = "<group>"; };
+		9E90DD6721DDECFF00CFC6F8 /* ReadModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ReadModel.h; sourceTree = "<group>"; };
+		9E90DD7121DDED8F00CFC6F8 /* MainViewModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MainViewModel.m; sourceTree = "<group>"; };
+		9E90DD7221DDED8F00CFC6F8 /* MainViewModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MainViewModel.h; sourceTree = "<group>"; };
+		9E90DD7721DDEDC500CFC6F8 /* BookViewModel.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = BookViewModel.h; sourceTree = "<group>"; };
+		9E90DD7821DDEDC500CFC6F8 /* BookViewModel.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = BookViewModel.m; sourceTree = "<group>"; };
+		9E90DD7A21DDEDD000CFC6F8 /* BookModel.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = BookModel.h; sourceTree = "<group>"; };
+		9E90DD7B21DDEDD000CFC6F8 /* BookModel.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = BookModel.m; sourceTree = "<group>"; };
+		9E90DD7D21DDEE5600CFC6F8 /* BookPageController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = BookPageController.h; sourceTree = "<group>"; };
+		9E90DD7E21DDEE5600CFC6F8 /* BookPageController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = BookPageController.m; sourceTree = "<group>"; };
 		F8544C8A21A16C5FF7FB1425 /* libPods-ReadingDemo-OC.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-ReadingDemo-OC.a"; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
 
@@ -199,40 +211,10 @@
 		9E151E5921CA37460071EF2E /* ReadingDemo */ = {
 			isa = PBXGroup;
 			children = (
-				9E151E5F21CA37F60071EF2E /* ReadingModel */,
-				9E151E5E21CA37EA0071EF2E /* ReadingView */,
-				9E151E5D21CA37D40071EF2E /* ReadingController */,
+				9E90DD6E21DDED0500CFC6F8 /* BookPage */,
+				9E90DD5821DDECDE00CFC6F8 /* HomePage */,
 			);
 			path = ReadingDemo;
-			sourceTree = "<group>";
-		};
-		9E151E5D21CA37D40071EF2E /* ReadingController */ = {
-			isa = PBXGroup;
-			children = (
-				9E151E6121CA38640071EF2E /* MainViewController.h */,
-				9E151E6221CA38640071EF2E /* MainViewController.m */,
-				9E151E9721CA48680071EF2E /* MainViewController+category.h */,
-				9E151E9821CA48680071EF2E /* MainViewController+category.m */,
-			);
-			path = ReadingController;
-			sourceTree = "<group>";
-		};
-		9E151E5E21CA37EA0071EF2E /* ReadingView */ = {
-			isa = PBXGroup;
-			children = (
-				9E151E9A21CA54230071EF2E /* MainCollectionCell.h */,
-				9E151E9B21CA54230071EF2E /* MainCollectionCell.m */,
-			);
-			path = ReadingView;
-			sourceTree = "<group>";
-		};
-		9E151E5F21CA37F60071EF2E /* ReadingModel */ = {
-			isa = PBXGroup;
-			children = (
-				1C2858C921CB4CC900559787 /* MainViewModel.h */,
-				1C2858CA21CB4CC900559787 /* MainViewModel.m */,
-			);
-			path = ReadingModel;
 			sourceTree = "<group>";
 		};
 		9E151E6421CA3A980071EF2E /* Resource */ = {
@@ -268,6 +250,100 @@
 				9E151E7821CA3AB30071EF2E /* Montserrat-ExtraBoldItalic.ttf */,
 			);
 			path = Montserrat;
+			sourceTree = "<group>";
+		};
+		9E90DD5821DDECDE00CFC6F8 /* HomePage */ = {
+			isa = PBXGroup;
+			children = (
+				9E90DD7021DDED2D00CFC6F8 /* ReadingViewModel */,
+				9E90DD5C21DDECFF00CFC6F8 /* ReadingController */,
+				9E90DD6121DDECFF00CFC6F8 /* ReadingModel */,
+				9E90DD5921DDECFF00CFC6F8 /* ReadingView */,
+			);
+			path = HomePage;
+			sourceTree = "<group>";
+		};
+		9E90DD5921DDECFF00CFC6F8 /* ReadingView */ = {
+			isa = PBXGroup;
+			children = (
+				9E90DD5A21DDECFF00CFC6F8 /* MainCollectionCell.h */,
+				9E90DD5B21DDECFF00CFC6F8 /* MainCollectionCell.m */,
+			);
+			path = ReadingView;
+			sourceTree = "<group>";
+		};
+		9E90DD5C21DDECFF00CFC6F8 /* ReadingController */ = {
+			isa = PBXGroup;
+			children = (
+				9E90DD6021DDECFF00CFC6F8 /* MainViewController.h */,
+				9E90DD5E21DDECFF00CFC6F8 /* MainViewController.m */,
+				9E90DD5D21DDECFF00CFC6F8 /* MainViewController+category.h */,
+				9E90DD5F21DDECFF00CFC6F8 /* MainViewController+category.m */,
+			);
+			path = ReadingController;
+			sourceTree = "<group>";
+		};
+		9E90DD6121DDECFF00CFC6F8 /* ReadingModel */ = {
+			isa = PBXGroup;
+			children = (
+				9E90DD6721DDECFF00CFC6F8 /* ReadModel.h */,
+				9E90DD6421DDECFF00CFC6F8 /* ReadModel.m */,
+			);
+			path = ReadingModel;
+			sourceTree = "<group>";
+		};
+		9E90DD6E21DDED0500CFC6F8 /* BookPage */ = {
+			isa = PBXGroup;
+			children = (
+				9E90DD7621DDEDAB00CFC6F8 /* BookViewModel */,
+				9E90DD7521DDEDA200CFC6F8 /* BookModel */,
+				9E90DD7421DDED9800CFC6F8 /* BookView */,
+				9E90DD6F21DDED1600CFC6F8 /* BookController */,
+			);
+			path = BookPage;
+			sourceTree = "<group>";
+		};
+		9E90DD6F21DDED1600CFC6F8 /* BookController */ = {
+			isa = PBXGroup;
+			children = (
+				9E90DD7D21DDEE5600CFC6F8 /* BookPageController.h */,
+				9E90DD7E21DDEE5600CFC6F8 /* BookPageController.m */,
+			);
+			path = BookController;
+			sourceTree = "<group>";
+		};
+		9E90DD7021DDED2D00CFC6F8 /* ReadingViewModel */ = {
+			isa = PBXGroup;
+			children = (
+				9E90DD7221DDED8F00CFC6F8 /* MainViewModel.h */,
+				9E90DD7121DDED8F00CFC6F8 /* MainViewModel.m */,
+			);
+			path = ReadingViewModel;
+			sourceTree = "<group>";
+		};
+		9E90DD7421DDED9800CFC6F8 /* BookView */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = BookView;
+			sourceTree = "<group>";
+		};
+		9E90DD7521DDEDA200CFC6F8 /* BookModel */ = {
+			isa = PBXGroup;
+			children = (
+				9E90DD7A21DDEDD000CFC6F8 /* BookModel.h */,
+				9E90DD7B21DDEDD000CFC6F8 /* BookModel.m */,
+			);
+			path = BookModel;
+			sourceTree = "<group>";
+		};
+		9E90DD7621DDEDAB00CFC6F8 /* BookViewModel */ = {
+			isa = PBXGroup;
+			children = (
+				9E90DD7721DDEDC500CFC6F8 /* BookViewModel.h */,
+				9E90DD7821DDEDC500CFC6F8 /* BookViewModel.m */,
+			);
+			path = BookViewModel;
 			sourceTree = "<group>";
 		};
 		A1111A62D754E43E83C99637 /* Frameworks */ = {
@@ -411,15 +487,19 @@
 			buildActionMask = 2147483647;
 			files = (
 				9E151E4521CA2CEA0071EF2E /* ViewController.m in Sources */,
-				9E151E9C21CA54230071EF2E /* MainCollectionCell.m in Sources */,
+				9E90DD7921DDEDC500CFC6F8 /* BookViewModel.m in Sources */,
+				9E90DD6821DDECFF00CFC6F8 /* MainCollectionCell.m in Sources */,
+				9E90DD7C21DDEDD000CFC6F8 /* BookModel.m in Sources */,
 				1C2858D521CB76F900559787 /* LTserverManger+category.m in Sources */,
+				9E90DD6C21DDECFF00CFC6F8 /* ReadModel.m in Sources */,
+				9E90DD6921DDECFF00CFC6F8 /* MainViewController.m in Sources */,
 				9E151E5021CA2CEB0071EF2E /* main.m in Sources */,
-				1C2858CB21CB4CC900559787 /* MainViewModel.m in Sources */,
+				9E90DD7321DDED8F00CFC6F8 /* MainViewModel.m in Sources */,
 				9E151E4221CA2CEA0071EF2E /* AppDelegate.m in Sources */,
 				1C2858D221CB4EED00559787 /* LTserverManger.m in Sources */,
-				9E151E6321CA38640071EF2E /* MainViewController.m in Sources */,
+				9E90DD7F21DDEE5600CFC6F8 /* BookPageController.m in Sources */,
 				9E151E5C21CA37B10071EF2E /* LTBaseViewController.m in Sources */,
-				9E151E9921CA48680071EF2E /* MainViewController+category.m in Sources */,
+				9E90DD6A21DDECFF00CFC6F8 /* MainViewController+category.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
