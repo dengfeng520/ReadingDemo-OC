@@ -28,7 +28,7 @@
             //
             make.right.equalTo(weakself.contentView.mas_right).with.offset(-12);
             //
-            make.height.mas_equalTo(weakself.bookImg.mas_width).multipliedBy(1.8);
+            make.height.mas_equalTo(weakself.bookImg.mas_width).multipliedBy(1);
         }];
         _bookImg.backgroundColor = [UIColor redColor];
     }

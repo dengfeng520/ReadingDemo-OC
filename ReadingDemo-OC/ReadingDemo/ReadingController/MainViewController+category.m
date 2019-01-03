@@ -51,12 +51,36 @@ static NSString * const MainCollectionCellID = @"MainCollectionCellID";
 
     __weak typeof (self) weakSelf = self;
     // 耗时操作可以放在任务中
-//    [self addTask:^{
+    [self addTask:^{
         //=============================
         NSArray *imgList = weakSelf.bookList[indexPath.row][@"im:image"];
         NSURL *imgURL = [NSURL URLWithString:[NSString stringWithFormat:@"%@",imgList.lastObject[@"label"]]];
-        [cell.bookImg sd_setImageWithURL:imgURL placeholderImage:[UIImage imageNamed:@"Placeholder"]];
-//    }];
+//        [cell.bookImg sd_setImageWithURL:imgURL placeholderImage:[UIImage imageNamed:@"Placeholder"]];
+    [cell.bookImg sd_setImageWithURL:imgURL completed:^(UIImage * _Nullable image, NSError * _Nullable error, SDImageCacheType cacheType, NSURL * _Nullable imageURL) {
+        
+        //对图片压缩处理
+        CGSize newSize;
+        
+        CGImageRef imageRef = nil;
+        
+        if ((image.size.width / image.size.height) < 1) {
+            
+            newSize.width = image.size.width;
+            
+            newSize.height = image.size.width ;
+            
+            imageRef = CGImageCreateWithImageInRect([image CGImage], CGRectMake(0, fabs(image.size.height - newSize.height) / 2, newSize.width, newSize.height));
+            
+        } else {
+            
+            newSize.height = image.size.height;
+            
+            newSize.width = image.size.height * 1;
+            
+            imageRef = CGImageCreateWithImageInRect([image CGImage], CGRectMake(fabs(image.size.width - newSize.width) / 2, 0, newSize.width, newSize.height));
+        }
+    }];
+    }];
     //=============================
     
     return cell;
@@ -67,7 +91,7 @@ static NSString * const MainCollectionCellID = @"MainCollectionCellID";
     
     CGFloat cellWidth = self.listView.frame.size.width / 3 - 4;
 
-    return CGSizeMake(cellWidth, cellWidth * 2.2);
+    return CGSizeMake(cellWidth, cellWidth * 1.2);
 }
 
 -(UIEdgeInsets)collectionView:(UICollectionView *)collectionView layout:(UICollectionViewLayout *)collectionViewLayout insetForSectionAtIndex:(NSInteger)section{
