@@ -9,6 +9,6 @@ pod 'SDWebImage'
 pod 'AFNetworking'
 pod 'YYText'
 pod 'ReactiveObjC'
-
+pod 'MBProgressHUD'
 
 end

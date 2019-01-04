@@ -115,6 +115,15 @@ static NSString * const MainCollectionCellID = @"MainCollectionCellID";
 
 -(void)collectionView:(UICollectionView *)collectionView didSelectItemAtIndexPath:(NSIndexPath *)indexPath{
     printf("indexPath===============%d\n",(int)indexPath.row);
+    
+    
+    UIViewController *bookPageView = [[NSClassFromString(@"BookPageViewController") alloc]init];
+    SEL aSelector = NSSelectorFromString(@"setIsPlayLaunchAnimation:");
+    if ([bookPageView respondsToSelector:aSelector]) {
+        IMP aIMP = [SearchMainView methodForSelector:aSelector];
+        void (*setter)(id, SEL, BOOL) = (void(*)(id, SEL, BOOL))aIMP;
+        setter(bookPageView, aSelector,true);
+    }
 }
 
 

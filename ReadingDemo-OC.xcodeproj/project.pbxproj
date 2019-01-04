@@ -44,7 +44,7 @@
 		9E90DD7321DDED8F00CFC6F8 /* MainViewModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 9E90DD7121DDED8F00CFC6F8 /* MainViewModel.m */; };
 		9E90DD7921DDEDC500CFC6F8 /* BookViewModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 9E90DD7821DDEDC500CFC6F8 /* BookViewModel.m */; };
 		9E90DD7C21DDEDD000CFC6F8 /* BookModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 9E90DD7B21DDEDD000CFC6F8 /* BookModel.m */; };
-		9E90DD7F21DDEE5600CFC6F8 /* BookPageController.m in Sources */ = {isa = PBXBuildFile; fileRef = 9E90DD7E21DDEE5600CFC6F8 /* BookPageController.m */; };
+		9E90DD8221DDF0DE00CFC6F8 /* BookPageViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 9E90DD8121DDF0DE00CFC6F8 /* BookPageViewController.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -107,8 +107,8 @@
 		9E90DD7821DDEDC500CFC6F8 /* BookViewModel.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = BookViewModel.m; sourceTree = "<group>"; };
 		9E90DD7A21DDEDD000CFC6F8 /* BookModel.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = BookModel.h; sourceTree = "<group>"; };
 		9E90DD7B21DDEDD000CFC6F8 /* BookModel.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = BookModel.m; sourceTree = "<group>"; };
-		9E90DD7D21DDEE5600CFC6F8 /* BookPageController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = BookPageController.h; sourceTree = "<group>"; };
-		9E90DD7E21DDEE5600CFC6F8 /* BookPageController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = BookPageController.m; sourceTree = "<group>"; };
+		9E90DD8021DDF0DE00CFC6F8 /* BookPageViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = BookPageViewController.h; sourceTree = "<group>"; };
+		9E90DD8121DDF0DE00CFC6F8 /* BookPageViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = BookPageViewController.m; sourceTree = "<group>"; };
 		F8544C8A21A16C5FF7FB1425 /* libPods-ReadingDemo-OC.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-ReadingDemo-OC.a"; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
 
@@ -306,8 +306,8 @@
 		9E90DD6F21DDED1600CFC6F8 /* BookController */ = {
 			isa = PBXGroup;
 			children = (
-				9E90DD7D21DDEE5600CFC6F8 /* BookPageController.h */,
-				9E90DD7E21DDEE5600CFC6F8 /* BookPageController.m */,
+				9E90DD8021DDF0DE00CFC6F8 /* BookPageViewController.h */,
+				9E90DD8121DDF0DE00CFC6F8 /* BookPageViewController.m */,
 			);
 			path = BookController;
 			sourceTree = "<group>";
@@ -494,10 +494,10 @@
 				9E90DD6C21DDECFF00CFC6F8 /* ReadModel.m in Sources */,
 				9E90DD6921DDECFF00CFC6F8 /* MainViewController.m in Sources */,
 				9E151E5021CA2CEB0071EF2E /* main.m in Sources */,
+				9E90DD8221DDF0DE00CFC6F8 /* BookPageViewController.m in Sources */,
 				9E90DD7321DDED8F00CFC6F8 /* MainViewModel.m in Sources */,
 				9E151E4221CA2CEA0071EF2E /* AppDelegate.m in Sources */,
 				1C2858D221CB4EED00559787 /* LTserverManger.m in Sources */,
-				9E90DD7F21DDEE5600CFC6F8 /* BookPageController.m in Sources */,
 				9E151E5C21CA37B10071EF2E /* LTBaseViewController.m in Sources */,
 				9E90DD6A21DDECFF00CFC6F8 /* MainViewController+category.m in Sources */,
 			);

@@ -1,5 +1,5 @@
 //
-//  BookPageController.h
+//  BookPageViewController.h
 //  ReadingDemo-OC
 //
 //  Created by rp.wang on 2019/1/3.
@@ -10,7 +10,7 @@
 
 NS_ASSUME_NONNULL_BEGIN
 
-@interface BookPageController : UIViewController
+@interface BookPageViewController : UIViewController
 
 @end
 
