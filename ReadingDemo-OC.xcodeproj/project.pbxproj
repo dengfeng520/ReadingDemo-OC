@@ -93,6 +93,7 @@
 		9E151E9321CA42030071EF2E /* zh-Hans */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = "zh-Hans"; path = "zh-Hans.lproj/Localizable.strings"; sourceTree = "<group>"; };
 		9E151E9521CA423F0071EF2E /* ja */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = ja; path = ja.lproj/Localizable.strings; sourceTree = "<group>"; };
 		9E151E9621CA42410071EF2E /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/Localizable.strings; sourceTree = "<group>"; };
+		9E1F34C921DF08E90021157C /* SearchMainViewController+Extension.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "SearchMainViewController+Extension.h"; sourceTree = "<group>"; };
 		9E90DD5A21DDECFF00CFC6F8 /* MainCollectionCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MainCollectionCell.h; sourceTree = "<group>"; };
 		9E90DD5B21DDECFF00CFC6F8 /* MainCollectionCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MainCollectionCell.m; sourceTree = "<group>"; };
 		9E90DD5D21DDECFF00CFC6F8 /* MainViewController+category.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "MainViewController+category.h"; sourceTree = "<group>"; };
@@ -306,6 +307,7 @@
 		9E90DD6F21DDED1600CFC6F8 /* BookController */ = {
 			isa = PBXGroup;
 			children = (
+				9E1F34C921DF08E90021157C /* SearchMainViewController+Extension.h */,
 				9E90DD8021DDF0DE00CFC6F8 /* BookPageViewController.h */,
 				9E90DD8121DDF0DE00CFC6F8 /* BookPageViewController.m */,
 			);

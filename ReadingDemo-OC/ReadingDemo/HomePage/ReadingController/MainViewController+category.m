@@ -118,12 +118,19 @@ static NSString * const MainCollectionCellID = @"MainCollectionCellID";
     
     
     UIViewController *bookPageView = [[NSClassFromString(@"BookPageViewController") alloc]init];
-    SEL aSelector = NSSelectorFromString(@"setIsPlayLaunchAnimation:");
-    if ([bookPageView respondsToSelector:aSelector]) {
-        IMP aIMP = [SearchMainView methodForSelector:aSelector];
-        void (*setter)(id, SEL, BOOL) = (void(*)(id, SEL, BOOL))aIMP;
-        setter(bookPageView, aSelector,true);
-    }
+//    SEL aSelector = NSSelectorFromString(@"setIsPlayLaunchAnimation:");
+//    if ([bookPageView respondsToSelector:aSelector]) {
+//        IMP aIMP = [bookPageView methodForSelector:aSelector];
+//        void (*setter)(id, SEL, BOOL) = (void(*)(id, SEL, BOOL))aIMP;
+//        setter(bookPageView, aSelector,true);
+//    }
+    CATransition* transition = [CATransition animation];
+    transition.duration = 0.35;
+    transition.type = kCATransitionMoveIn;
+    transition.subtype = kCATransitionFromTop;
+    transition.timingFunction = [CAMediaTimingFunction functionWithName:kCAMediaTimingFunctionEaseIn];
+    [self.navigationController.view.layer addAnimation:transition forKey:kCATransition];
+    [self.navigationController pushViewController:bookPageView animated:NO];
 }
 
 

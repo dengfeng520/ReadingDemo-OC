@@ -11,3 +11,48 @@
 @implementation ReadModel
 
 @end
+//==============================
+@implementation im_Name
+
+@end
+//==============================
+@implementation im_image
+
+@end
+//==============================
+@implementation attributes
+
+@end
+//==============================
+@implementation summary
+
+@end
+//==============================
+@implementation im_price
+
+@end
+//==============================
+@implementation im_contentType
+
+@end
+//==============================
+@implementation rights
+
+@end
+//==============================
+@implementation title
+
+@end
+//==============================
+@implementation im_artist
+
+@end
+//==============================
+@implementation category
+
+@end
+//==============================
+@implementation im_releaseDate
+
+
+@end

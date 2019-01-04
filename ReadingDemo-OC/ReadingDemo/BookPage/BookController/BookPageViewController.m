@@ -8,7 +8,9 @@
 
 #import "BookPageViewController.h"
 
-@interface BookPageViewController ()
+@interface BookPageViewController ()<UIPageViewControllerDataSource,UIPageViewControllerDelegate>
+///
+@property (nonatomic, weak) UIPageViewController * pageViewController;
 
 @end
 
@@ -18,9 +20,16 @@
     [super viewDidLoad];
     // Do any additional setup after loading the view.
     self.title = NSLocalizedString(@"ReadingBook",  @"description for this key.");
+    
+    self.automaticallyAdjustsScrollViewInsets = NO;
+    self.view.backgroundColor = [UIColor whiteColor];
 
 }
 
+// MARK: - PageView
+-(void)createPageViewController{
+    
+}
 
 
 @end
