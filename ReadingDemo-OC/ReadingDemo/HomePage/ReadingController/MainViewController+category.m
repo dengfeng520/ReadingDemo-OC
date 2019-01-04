@@ -86,11 +86,9 @@ static NSString * const MainCollectionCellID = @"MainCollectionCellID";
 //    }];
     //=============================
     cell.bookNameLab.text = [[NSString stringWithFormat:@"%@",model.im_name.label]stringByReplacingOccurrencesOfString:@"(null)" withString:@""];
-    
     //=============================
     
     return cell;
-    
 }
 
 - (CGSize)collectionView:(UICollectionView *)collectionView layout:(UICollectionViewLayout *)collectionViewLayout sizeForItemAtIndexPath:(NSIndexPath *)indexPath{
@@ -119,8 +117,7 @@ static NSString * const MainCollectionCellID = @"MainCollectionCellID";
 }
 
 -(void)collectionView:(UICollectionView *)collectionView didSelectItemAtIndexPath:(NSIndexPath *)indexPath{
-    
-    
+
     UIViewController *bookPageView = [[NSClassFromString(@"BookPageViewController") alloc]init];
 //    SEL aSelector = NSSelectorFromString(@"setIsPlayLaunchAnimation:");
 //    if ([bookPageView respondsToSelector:aSelector]) {
@@ -128,7 +125,7 @@ static NSString * const MainCollectionCellID = @"MainCollectionCellID";
 //        void (*setter)(id, SEL, BOOL) = (void(*)(id, SEL, BOOL))aIMP;
 //        setter(bookPageView, aSelector,true);
 //    }
-    CATransition* transition = [CATransition animation];
+    CATransition *transition = [CATransition animation];
     transition.duration = 0.35;
     transition.type = kCATransitionMoveIn;
     transition.subtype = kCATransitionFromTop;
