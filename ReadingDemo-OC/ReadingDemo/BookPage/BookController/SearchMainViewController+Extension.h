@@ -10,17 +10,12 @@
 
 NS_ASSUME_NONNULL_BEGIN
 
-// 翻页模式
-NS_ENUM(NSInteger, TReaderTransitionStyle){
-    TReaderTransitionStylePageCur,
-    TReaderTransitionStyleScroll,
-};
+
 
 @interface SearchMainViewController ()
-///
-@property (nonatomic, assign) TReaderTransitionStyle style;
-///
-@property (nonatomic, weak) UIPageViewController * pageViewController;
+
+
+
 @end
 
 NS_ASSUME_NONNULL_END

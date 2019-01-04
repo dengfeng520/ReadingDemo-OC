@@ -22,11 +22,21 @@
     
     self.automaticallyAdjustsScrollViewInsets = NO;
     self.view.backgroundColor = [UIColor whiteColor];
+    //===============================
+    [self createPageViewController];
 
 }
 
 // MARK: - PageView
 -(void)createPageViewController{
+    UIPageViewController *pageViewController = self.style == TReaderTransitionStyleScroll ? [[UIPageViewController alloc]init] : [[UIPageViewController alloc]initWithTransitionStyle:UIPageViewControllerTransitionStyleScroll navigationOrientation:UIPageViewControllerNavigationOrientationHorizontal options:nil];
+    pageViewController.delegate = self;
+    pageViewController.dataSource = self;
+    pageViewController.view.frame = self.view.bounds;
+    
+    [self addChildViewController:pageViewController];
+    [self.view addSubview:pageViewController.view];
+    self.pageViewController = pageViewController;
     
 }
 

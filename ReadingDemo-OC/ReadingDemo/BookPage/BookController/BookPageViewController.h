@@ -10,7 +10,18 @@
 
 NS_ASSUME_NONNULL_BEGIN
 
+// 翻页模式
+typedef NS_ENUM(NSInteger, TReaderTransitionStyle){
+    TReaderTransitionStylePageCur,
+    TReaderTransitionStyleScroll,
+};
+
 @interface BookPageViewController : LTBaseViewController
+
+///
+@property (nonatomic, assign) TReaderTransitionStyle style;
+///
+@property (nonatomic, weak) UIPageViewController * pageViewController;
 
 @end
 
