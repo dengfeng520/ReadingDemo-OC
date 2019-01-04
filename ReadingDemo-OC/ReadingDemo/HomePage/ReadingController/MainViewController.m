@@ -8,8 +8,12 @@
 
 #import "MainViewController.h"
 
-@interface MainViewController ()
+#import "MJExtension.h"
+#import "MBProgressHUD.h"
 
+
+
+@interface MainViewController ()
 
 @end
 
@@ -22,11 +26,19 @@
     self.title = NSLocalizedString(@"bookshelf",  @"description for this key.");
 
     __weak typeof (self) weakSelf = self;
+    
+    [MBProgressHUD showHUDAddedTo:self.view animated:true];
+    
     //步骤四:订阅信号量
     [[[self.viewModel.listCommand executionSignals]switchToLatest]subscribeNext:^(id  _Nullable x) {
+        
+        [MBProgressHUD hideHUDForView:weakSelf.view animated:true];
         if([[x allKeys]containsObject:@"feed"]){
             NSDictionary *hashMap = [x objectForKey:@"feed"];
-            weakSelf.bookList = hashMap[@"entry"];
+            // ---> Model
+            NSArray *lsList = [ReadModel mj_objectArrayWithKeyValuesArray:hashMap[@"entry"]];
+            weakSelf.bookList = [lsList mutableCopy];
+            // ---> Update
             [weakSelf.listView reloadData];
         }
     }];

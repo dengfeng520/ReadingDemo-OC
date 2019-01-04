@@ -10,6 +10,7 @@
 #import "Masonry.h"
 #import "ReactiveObjC.h"
 #import "MainViewModel.h"
+#import "ReadModel.h"
 
 NS_ASSUME_NONNULL_BEGIN
 

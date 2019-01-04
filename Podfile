@@ -10,5 +10,6 @@ pod 'AFNetworking'
 pod 'YYText'
 pod 'ReactiveObjC'
 pod 'MBProgressHUD'
+pod 'MJExtension'
 
 end

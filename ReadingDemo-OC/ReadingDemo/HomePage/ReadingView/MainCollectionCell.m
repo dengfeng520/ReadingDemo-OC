@@ -31,6 +31,23 @@
             make.height.mas_equalTo(weakself.bookImg.mas_width).multipliedBy(1);
         }];
         _bookImg.backgroundColor = [UIColor redColor];
+        
+        //============================
+        _bookNameLab = [[UILabel alloc]initWithFrame:CGRectZero];
+        [self.contentView addSubview:_bookNameLab];
+        [_bookNameLab mas_makeConstraints:^(MASConstraintMaker *make) {
+            //
+            make.top.equalTo(weakself.bookImg.mas_bottom).with.offset(5);
+            //
+            make.left.equalTo(weakself.contentView.mas_left).with.offset(8);
+            //
+            make.right.equalTo(weakself.contentView.mas_right).with.offset(-8);
+            //
+            make.bottom.equalTo(weakself.contentView.mas_bottom).with.offset(-5);
+        }];
+        _bookNameLab.textAlignment = NSTextAlignmentCenter;
+        _bookNameLab.numberOfLines = 0;
+        _bookNameLab.font = [UIFont fontWithName:@"Montserrat-Regular" size:13.f];
     }
     return self;
 }

@@ -9,8 +9,7 @@
 #import "BookPageViewController.h"
 
 @interface BookPageViewController ()<UIPageViewControllerDataSource,UIPageViewControllerDelegate>
-///
-@property (nonatomic, weak) UIPageViewController * pageViewController;
+
 
 @end
 

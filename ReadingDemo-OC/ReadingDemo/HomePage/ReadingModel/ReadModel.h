@@ -8,17 +8,17 @@
 
 #import <Foundation/Foundation.h>
 
-@class im_Name,im_image,attributes,im_price,rights,title,Id,category,im_releaseDate;
+@class im_name,im_image,attributes,im_price,rights,title,Id,category,im_releaseDate,summary;
 
 NS_ASSUME_NONNULL_BEGIN
 
 @interface ReadModel : NSObject
 ///
-@property (strong, nonatomic) im_Name *im_name;
+@property (strong, nonatomic) im_name *im_name;
 ///
 @property (strong, nonatomic) NSArray *im_image;
 ///
-@property (strong, nonatomic) NSArray *summary;
+@property (strong, nonatomic) summary *summary;
 ///
 @property (strong, nonatomic) im_price *im_price;
 ///
@@ -35,7 +35,7 @@ NS_ASSUME_NONNULL_BEGIN
 @end
 
 //==============================
-@interface im_Name : NSObject
+@interface im_name : NSObject
 
 @property (copy, nonatomic) NSString *label;
 
@@ -46,7 +46,7 @@ NS_ASSUME_NONNULL_BEGIN
 ///
 @property (copy, nonatomic) NSString *label;
 ///
-@property (copy, nonatomic) attributes *attributes;
+@property (strong, nonatomic) attributes *attributes;
 @end
 
 //==============================
@@ -71,8 +71,6 @@ NS_ASSUME_NONNULL_BEGIN
 @property (copy, nonatomic) NSString *im_id;
 ///
 @property (copy, nonatomic) NSString *im_bundleId;
-///
-//@property (copy, nonatomic) NSString *label;
 ///
 @property (copy, nonatomic) NSString *scheme;
 

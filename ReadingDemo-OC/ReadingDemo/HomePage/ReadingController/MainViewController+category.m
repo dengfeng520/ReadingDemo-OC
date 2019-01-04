@@ -51,8 +51,10 @@ static NSString * const MainCollectionCellID = @"MainCollectionCellID";
 
     __weak typeof (self) weakSelf = self;
     //=============================
-    NSArray *imgList = weakSelf.bookList[indexPath.row][@"im:image"];
-    NSURL *imgURL = [NSURL URLWithString:[NSString stringWithFormat:@"%@",imgList.lastObject[@"label"]]];
+    ReadModel *model = weakSelf.bookList[indexPath.row];
+//    NSArray *imgList = weakSelf.bookList[indexPath.row][@"im:image"];
+    im_image *imgModel = model.im_image.lastObject;
+    NSURL *imgURL = [NSURL URLWithString:[NSString stringWithFormat:@"%@",imgModel.label]];
     [cell.bookImg sd_setImageWithURL:imgURL placeholderImage:[UIImage imageNamed:@"Placeholder"]];
     // 耗时操作可以放在任务中
 //    [self addTask:^{
@@ -83,6 +85,9 @@ static NSString * const MainCollectionCellID = @"MainCollectionCellID";
 //        }];
 //    }];
     //=============================
+    cell.bookNameLab.text = [[NSString stringWithFormat:@"%@",model.im_name.label]stringByReplacingOccurrencesOfString:@"(null)" withString:@""];
+    
+    //=============================
     
     return cell;
     
@@ -92,7 +97,7 @@ static NSString * const MainCollectionCellID = @"MainCollectionCellID";
     
     CGFloat cellWidth = self.listView.frame.size.width / 3 - 4;
 
-    return CGSizeMake(cellWidth, cellWidth * 1.2);
+    return CGSizeMake(cellWidth, cellWidth * 1.4);
 }
 
 -(UIEdgeInsets)collectionView:(UICollectionView *)collectionView layout:(UICollectionViewLayout *)collectionViewLayout insetForSectionAtIndex:(NSInteger)section{
@@ -114,7 +119,6 @@ static NSString * const MainCollectionCellID = @"MainCollectionCellID";
 }
 
 -(void)collectionView:(UICollectionView *)collectionView didSelectItemAtIndexPath:(NSIndexPath *)indexPath{
-    printf("indexPath===============%d\n",(int)indexPath.row);
     
     
     UIViewController *bookPageView = [[NSClassFromString(@"BookPageViewController") alloc]init];

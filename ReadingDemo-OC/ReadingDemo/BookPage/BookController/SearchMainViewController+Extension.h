@@ -17,9 +17,10 @@ NS_ENUM(NSInteger, TReaderTransitionStyle){
 };
 
 @interface SearchMainViewController ()
-
+///
 @property (nonatomic, assign) TReaderTransitionStyle style;
-
+///
+@property (nonatomic, weak) UIPageViewController * pageViewController;
 @end
 
 NS_ASSUME_NONNULL_END

@@ -7,12 +7,34 @@
 //
 
 #import "ReadModel.h"
+#import "MJExtension.h"
 
 @implementation ReadModel
-
++(void)load{
+    
+    [ReadModel mj_setupObjectClassInArray:^NSDictionary *{
+        return @{
+                 @"im_image" : [im_image class],
+                 };
+    }];
+    
+    [ReadModel mj_setupReplacedKeyFromPropertyName:^NSDictionary *{
+        return @{
+                 @"im_image" : @"im:image",
+                 @"summary" : @"summary",
+                 @"im_name" : @"im:name",
+                 @"im_price" : @"im:price",
+                 @"rights" : @"rights",
+                 @"title" : @"title",
+                 @"Id" : @"id",
+                 @"category" : @"category",
+                 @"im_releaseDate" : @"im:releaseDate",
+                 };
+    }];
+}
 @end
 //==============================
-@implementation im_Name
+@implementation im_name
 
 @end
 //==============================
