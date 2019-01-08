@@ -24,8 +24,14 @@
     self.view.backgroundColor = [UIColor whiteColor];
     //===============================
     [self createPageViewController];
-
 }
+
+- (void)addSingleTapGesture{
+    UITapGestureRecognizer *singleTap = [[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(singleTapAction:)];
+    //增加事件者响应者，
+    [self.view addGestureRecognizer:singleTap];
+}
+
 
 // MARK: - PageView
 -(void)createPageViewController{
@@ -37,8 +43,26 @@
     [self addChildViewController:pageViewController];
     [self.view addSubview:pageViewController.view];
     self.pageViewController = pageViewController;
+}
+
+- (void)singleTapAction:(UIGestureRecognizer *)gesture{
+    
     
 }
 
+// MARK: - UIPageViewControllerDataSource
+- (UIViewController *)pageViewController:(UIPageViewController *)pageViewController
+      viewControllerBeforeViewController:(UIViewController *)viewController{
 
+    return nil;
+}
+
+- (UIViewController *)pageViewController:(UIPageViewController *)pageViewController
+       viewControllerAfterViewController:(UIViewController *)viewController{
+    return nil;
+}
+
+- (void)pageViewController:(UIPageViewController *)pageViewController didFinishAnimating:(BOOL)finished previousViewControllers:(NSArray *)previousViewControllers transitionCompleted:(BOOL)completed{
+ 
+}
 @end

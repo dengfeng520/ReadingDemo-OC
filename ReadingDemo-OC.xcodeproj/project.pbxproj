@@ -37,6 +37,8 @@
 		9E151E8A21CA3AB30071EF2E /* Montserrat-SemiBoldItalic.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 9E151E7721CA3AB30071EF2E /* Montserrat-SemiBoldItalic.ttf */; };
 		9E151E8B21CA3AB30071EF2E /* Montserrat-ExtraBoldItalic.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 9E151E7821CA3AB30071EF2E /* Montserrat-ExtraBoldItalic.ttf */; };
 		9E151E9221CA42030071EF2E /* Localizable.strings in Resources */ = {isa = PBXBuildFile; fileRef = 9E151E9421CA42030071EF2E /* Localizable.strings */; };
+		9E1F34F621E302EF0021157C /* BookTextViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 9E1F34F521E302EF0021157C /* BookTextViewController.m */; };
+		9E1F34F921E304CB0021157C /* LTAttributedLabel.m in Sources */ = {isa = PBXBuildFile; fileRef = 9E1F34F821E304CB0021157C /* LTAttributedLabel.m */; };
 		9E90DD6821DDECFF00CFC6F8 /* MainCollectionCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 9E90DD5B21DDECFF00CFC6F8 /* MainCollectionCell.m */; };
 		9E90DD6921DDECFF00CFC6F8 /* MainViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 9E90DD5E21DDECFF00CFC6F8 /* MainViewController.m */; };
 		9E90DD6A21DDECFF00CFC6F8 /* MainViewController+category.m in Sources */ = {isa = PBXBuildFile; fileRef = 9E90DD5F21DDECFF00CFC6F8 /* MainViewController+category.m */; };
@@ -94,6 +96,10 @@
 		9E151E9521CA423F0071EF2E /* ja */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = ja; path = ja.lproj/Localizable.strings; sourceTree = "<group>"; };
 		9E151E9621CA42410071EF2E /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/Localizable.strings; sourceTree = "<group>"; };
 		9E1F34C921DF08E90021157C /* SearchMainViewController+Extension.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "SearchMainViewController+Extension.h"; sourceTree = "<group>"; };
+		9E1F34F421E302EF0021157C /* BookTextViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = BookTextViewController.h; sourceTree = "<group>"; };
+		9E1F34F521E302EF0021157C /* BookTextViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = BookTextViewController.m; sourceTree = "<group>"; };
+		9E1F34F721E304CB0021157C /* LTAttributedLabel.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = LTAttributedLabel.h; sourceTree = "<group>"; };
+		9E1F34F821E304CB0021157C /* LTAttributedLabel.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = LTAttributedLabel.m; sourceTree = "<group>"; };
 		9E90DD5A21DDECFF00CFC6F8 /* MainCollectionCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MainCollectionCell.h; sourceTree = "<group>"; };
 		9E90DD5B21DDECFF00CFC6F8 /* MainCollectionCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MainCollectionCell.m; sourceTree = "<group>"; };
 		9E90DD5D21DDECFF00CFC6F8 /* MainViewController+category.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "MainViewController+category.h"; sourceTree = "<group>"; };
@@ -310,6 +316,8 @@
 				9E1F34C921DF08E90021157C /* SearchMainViewController+Extension.h */,
 				9E90DD8021DDF0DE00CFC6F8 /* BookPageViewController.h */,
 				9E90DD8121DDF0DE00CFC6F8 /* BookPageViewController.m */,
+				9E1F34F421E302EF0021157C /* BookTextViewController.h */,
+				9E1F34F521E302EF0021157C /* BookTextViewController.m */,
 			);
 			path = BookController;
 			sourceTree = "<group>";
@@ -326,6 +334,8 @@
 		9E90DD7421DDED9800CFC6F8 /* BookView */ = {
 			isa = PBXGroup;
 			children = (
+				9E1F34F721E304CB0021157C /* LTAttributedLabel.h */,
+				9E1F34F821E304CB0021157C /* LTAttributedLabel.m */,
 			);
 			path = BookView;
 			sourceTree = "<group>";
@@ -491,8 +501,10 @@
 				9E151E4521CA2CEA0071EF2E /* ViewController.m in Sources */,
 				9E90DD7921DDEDC500CFC6F8 /* BookViewModel.m in Sources */,
 				9E90DD6821DDECFF00CFC6F8 /* MainCollectionCell.m in Sources */,
+				9E1F34F621E302EF0021157C /* BookTextViewController.m in Sources */,
 				9E90DD7C21DDEDD000CFC6F8 /* BookModel.m in Sources */,
 				1C2858D521CB76F900559787 /* LTserverManger+category.m in Sources */,
+				9E1F34F921E304CB0021157C /* LTAttributedLabel.m in Sources */,
 				9E90DD6C21DDECFF00CFC6F8 /* ReadModel.m in Sources */,
 				9E90DD6921DDECFF00CFC6F8 /* MainViewController.m in Sources */,
 				9E151E5021CA2CEB0071EF2E /* main.m in Sources */,
