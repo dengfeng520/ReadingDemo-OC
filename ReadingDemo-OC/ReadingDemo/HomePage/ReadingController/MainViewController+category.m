@@ -69,7 +69,6 @@ static NSString * const MainCollectionCellID = @"MainCollectionCellID";
             });
         });
         
-
 //        [cell.bookImg sd_setImageWithURL:imgURL placeholderImage:[UIImage imageNamed:@"Placeholder"]];
     }
     

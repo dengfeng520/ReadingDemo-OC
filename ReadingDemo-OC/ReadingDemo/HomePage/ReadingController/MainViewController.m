@@ -100,7 +100,7 @@
         //设置缓存数据数量
         _imgCacheData.countLimit = LINK_MAX;
         //设置缓存数据占据内存大小
-        _imgCacheData.totalCostLimit = MAX_CANON * MAX_CANON;
+        _imgCacheData.totalCostLimit = 180 * MAX_CANON * MAX_CANON;
     }
     return _imgCacheData;
 }
