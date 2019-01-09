@@ -39,7 +39,7 @@ static NSString * const MainCollectionCellID = @"MainCollectionCellID";
     
     MainCollectionCell *cell = [collectionView dequeueReusableCellWithReuseIdentifier:MainCollectionCellID forIndexPath:indexPath];
     cell.backgroundColor = [UIColor whiteColor];
-
+    
     __weak typeof (self) weakSelf = self;
     //============================= 从Model中获取数据
     ReadModel *model = weakSelf.bookList[indexPath.row];
@@ -47,31 +47,53 @@ static NSString * const MainCollectionCellID = @"MainCollectionCellID";
     
     
     //=============================
-//    UIImage *cacheImg = [self.imgCacheHashMap objectForKey:[NSString stringWithFormat:@"%ld",indexPath.row]];
+    //    UIImage *cacheImg = [self.imgCacheHashMap objectForKey:[NSString stringWithFormat:@"%ld",indexPath.row]];
+    //先判断内存中是否有缓存数据
     UIImage *cacheImg = [self.imgCacheData objectForKey:[NSString stringWithFormat:@"%ld",(long)indexPath.row]];
+    //检查内存缓存
     if(cacheImg){
         cell.bookImg.image = cacheImg;
-        NSLog(@"======================\n");
+        NSLog(@"======================cache\n");
     }else{
-        //异步下载
-        dispatch_async(dispatch_get_global_queue(0, 0), ^{
-
-            NSURL *imgURL = [NSURL URLWithString:[NSString stringWithFormat:@"%@",imgModel.label]];
-            NSData *imgData = [NSData dataWithContentsOfURL:imgURL];
-            //放到缓存中
-//            [self.imgCacheHashMap setObject:[UIImage imageWithData:imgData] forKey:[NSString stringWithFormat:@"%ld",indexPath.row]];
+        //获取沙盒路径
+        NSString *fileName = [[NSString stringWithFormat:@"%d",(int)indexPath.row]lastPathComponent];
+        //获取Cache路径
+        NSString *cachePahtStr = [NSSearchPathForDirectoriesInDomains(NSCachesDirectory, NSUserDomainMask, YES) lastObject];
+        //获取完整路径
+        NSString *fullPathStr = [cachePahtStr stringByAppendingPathComponent:fileName];
+        //是否有硬盘缓存
+        NSData *imgData = [NSData dataWithContentsOfFile:fullPathStr];
+        if(imgData){
+            NSLog(@"=====================hard disk\n");
+            //赋值操作
+            cell.bookImg.image = [UIImage imageWithData:imgData];
+            //加入到内存中
             [self.imgCacheData setObject:[UIImage imageWithData:imgData] forKey:[NSString stringWithFormat:@"%ld",(long)indexPath.row]];
-
-            dispatch_async(dispatch_get_main_queue(), ^{
-
-               cell.bookImg.image = [UIImage imageWithData:imgData];
-
+        }else{
+            //异步下载
+            dispatch_async(dispatch_get_global_queue(0, 0), ^{
+                //获取图片URL
+                NSURL *imgURL = [NSURL URLWithString:[NSString stringWithFormat:@"%@",imgModel.label]];
+                NSData *imgData = [NSData dataWithContentsOfURL:imgURL];
+                NSLog(@"======================download\n");
+                //放到缓存中
+                //[self.imgCacheHashMap setObject:[UIImage imageWithData:imgData] forKey:[NSString stringWithFormat:@"%ld",indexPath.row]];
+                //加入内存缓存中
+                [self.imgCacheData setObject:[UIImage imageWithData:imgData] forKey:[NSString stringWithFormat:@"%ld",(long)indexPath.row]];
+                //同时缓存到硬盘中
+                [imgData writeToFile:fullPathStr atomically:YES];
+                dispatch_async(dispatch_get_main_queue(), ^{
+                    //返回主线程刷新UI
+                    cell.bookImg.image = [UIImage imageWithData:imgData];
+                });
             });
-        });
-        
-//        [cell.bookImg sd_setImageWithURL:imgURL placeholderImage:[UIImage imageNamed:@"Placeholder"]];
+        }
+        //        NSURL *imgURL = [NSURL URLWithString:[NSString stringWithFormat:@"%@",imgModel.label]];
+        //        [cell.bookImg sd_setImageWithURL:imgURL placeholderImage:[UIImage imageNamed:@"Placeholder"]];
+        //        [cell.bookImg sd_setImageWithURL:imgURL placeholderImage:[UIImage imageNamed:@"Placeholder"] completed:^(UIImage * _Nullable image, NSError * _Nullable error, SDImageCacheType cacheType, NSURL * _Nullable imageURL) {
+        //
+        //        }];
     }
-    
     
 
     //=============================
@@ -84,7 +106,7 @@ static NSString * const MainCollectionCellID = @"MainCollectionCellID";
 - (CGSize)collectionView:(UICollectionView *)collectionView layout:(UICollectionViewLayout *)collectionViewLayout sizeForItemAtIndexPath:(NSIndexPath *)indexPath{
     
     CGFloat cellWidth = self.listView.frame.size.width / 3 - 4;
-
+    
     return CGSizeMake(cellWidth, cellWidth * 1.4);
 }
 
@@ -107,14 +129,14 @@ static NSString * const MainCollectionCellID = @"MainCollectionCellID";
 }
 
 -(void)collectionView:(UICollectionView *)collectionView didSelectItemAtIndexPath:(NSIndexPath *)indexPath{
-
+    
     UIViewController *bookPageView = [[NSClassFromString(@"BookPageViewController") alloc]init];
-//    SEL aSelector = NSSelectorFromString(@"setIsPlayLaunchAnimation:");
-//    if ([bookPageView respondsToSelector:aSelector]) {
-//        IMP aIMP = [bookPageView methodForSelector:aSelector];
-//        void (*setter)(id, SEL, BOOL) = (void(*)(id, SEL, BOOL))aIMP;
-//        setter(bookPageView, aSelector,true);
-//    }
+    //    SEL aSelector = NSSelectorFromString(@"setIsPlayLaunchAnimation:");
+    //    if ([bookPageView respondsToSelector:aSelector]) {
+    //        IMP aIMP = [bookPageView methodForSelector:aSelector];
+    //        void (*setter)(id, SEL, BOOL) = (void(*)(id, SEL, BOOL))aIMP;
+    //        setter(bookPageView, aSelector,true);
+    //    }
     CATransition *transition = [CATransition animation];
     transition.duration = 0.35;
     transition.type = kCATransitionMoveIn;
@@ -126,3 +148,4 @@ static NSString * const MainCollectionCellID = @"MainCollectionCellID";
 
 
 @end
+

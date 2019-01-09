@@ -27,25 +27,52 @@
 
     __weak typeof (self) weakSelf = self;
     
-    [MBProgressHUD showHUDAddedTo:self.view animated:true];
     
-    //步骤四:订阅信号量
-    [[[self.viewModel.listCommand executionSignals]switchToLatest]subscribeNext:^(id  _Nullable x) {
+    NSString *filePath = [self documentsPath:@"homeList.txt"];
+    
+    NSArray *temporaryList = [NSArray arrayWithContentsOfFile:filePath];
+    NSLog(@"==============%ld",(long)temporaryList.count);
+    if(temporaryList){
+        NSLog(@"List Cache=================");
+        // ---> Model
+        NSArray *lsList = [ReadModel mj_objectArrayWithKeyValuesArray:temporaryList];
+        weakSelf.bookList = [lsList mutableCopy];
+        // ---> Update
+        [weakSelf.listView reloadData];
         
-        [MBProgressHUD hideHUDForView:weakSelf.view animated:true];
-        if([[x allKeys]containsObject:@"feed"]){
-            NSDictionary *hashMap = [x objectForKey:@"feed"];
-            // ---> Model
-            NSArray *lsList = [ReadModel mj_objectArrayWithKeyValuesArray:hashMap[@"entry"]];
-            weakSelf.bookList = [lsList mutableCopy];
-            // ---> Update
-            [weakSelf.listView reloadData];
-        }
-    }];
-    //步骤三:执行命令
-    [weakSelf.viewModel.listCommand execute:nil];
+    }else{
+        [MBProgressHUD showHUDAddedTo:self.view animated:true];
+
+        //步骤四:订阅信号量
+        [[[self.viewModel.listCommand executionSignals]switchToLatest]subscribeNext:^(id  _Nullable x) {
+            
+            [MBProgressHUD hideHUDForView:weakSelf.view animated:true];
+            if([[x allKeys]containsObject:@"feed"]){
+                NSDictionary *hashMap = [x objectForKey:@"feed"];
+                // ---> Model
+                NSArray *lsList = [ReadModel mj_objectArrayWithKeyValuesArray:hashMap[@"entry"]];
+                weakSelf.bookList = [lsList mutableCopy];
+                // ---> Update
+                [weakSelf.listView reloadData];
+                
+                dispatch_async(dispatch_get_global_queue(0, 0), ^{
+                    NSLog(@"List Https=================%ld",(long)lsList.count);
+                    // cache
+                    NSArray *lsAry = hashMap[@"entry"];
+                    [lsAry writeToFile:filePath atomically:YES];
+                });
+            }
+        }];
+        //步骤三:执行命令
+        [weakSelf.viewModel.listCommand execute:nil];
+    }
 }
 
+-(NSString *)documentsPath:(NSString *)fileName {
+    NSArray *paths = NSSearchPathForDirectoriesInDomains(NSDocumentDirectory, NSUserDomainMask, YES);
+    NSString *documentsDirectory = [paths objectAtIndex:0];
+    return [documentsDirectory stringByAppendingPathComponent:fileName];
+}
 
 // MARK: - lazy data
 -(UICollectionView *)listView{
