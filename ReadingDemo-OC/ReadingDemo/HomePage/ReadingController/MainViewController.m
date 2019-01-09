@@ -82,5 +82,18 @@
     return _bookList;
 }
 
+-(NSMutableDictionary *)imgCacheHashMap{
+    if(_imgCacheHashMap == nil){
+        _imgCacheHashMap = [NSMutableDictionary dictionary];
+    }
+    return _imgCacheHashMap;
+}
+
+-(NSCache *)imgCacheData{
+    if(_imgCacheData == nil){
+        _imgCacheData = [[NSCache alloc]init];
+    }
+    return _imgCacheData;
+}
 
 @end

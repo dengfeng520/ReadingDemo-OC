@@ -21,7 +21,10 @@ NS_ASSUME_NONNULL_BEGIN
 @property (strong, nonatomic) MainViewModel *viewModel;
 ///
 @property (strong, nonatomic) NSMutableArray *bookList;
-
+///
+@property (strong, nonatomic) NSMutableDictionary *imgCacheHashMap;
+///
+@property (strong, nonatomic) NSCache *imgCacheData;
 
 
 @end

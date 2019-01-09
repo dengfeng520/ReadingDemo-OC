@@ -15,6 +15,7 @@ typedef void(^runloopBlock)(void);
 
 static NSString * const MainCollectionCellID = @"MainCollectionCellID";
 
+
 @implementation MainViewController (category)
 
 -(void)loadView{
@@ -40,14 +41,31 @@ static NSString * const MainCollectionCellID = @"MainCollectionCellID";
     cell.backgroundColor = [UIColor whiteColor];
 
     __weak typeof (self) weakSelf = self;
-    //=============================
+    //============================= 从Model中获取数据
     ReadModel *model = weakSelf.bookList[indexPath.row];
     im_image *imgModel = model.im_image.lastObject;
     
-    NSURL *imgURL = [NSURL URLWithString:[NSString stringWithFormat:@"%@",imgModel.label]];
-    [cell.bookImg sd_setImageWithURL:imgURL placeholderImage:[UIImage imageNamed:@"Placeholder"]];
-//    NSData *imgData = [NSData dataWithContentsOfURL:imgURL];
-//    cell.bookImg.image = [UIImage imageWithData:imgData];
+    
+    //=============================
+//    UIImage *cacheImg = [self.imgCacheHashMap objectForKey:[NSString stringWithFormat:@"%ld",indexPath.row]];
+    UIImage *cacheImg = [self.imgCacheData objectForKey:[NSString stringWithFormat:@"%ld",(long)indexPath.row]];
+    if(cacheImg){
+        cell.bookImg.image = cacheImg;
+        NSLog(@"======================\n");
+    }else{
+        NSURL *imgURL = [NSURL URLWithString:[NSString stringWithFormat:@"%@",imgModel.label]];
+
+//        [cell.bookImg sd_setImageWithURL:imgURL placeholderImage:[UIImage imageNamed:@"Placeholder"]];
+
+        NSData *imgData = [NSData dataWithContentsOfURL:imgURL];
+        cell.bookImg.image = [UIImage imageWithData:imgData];
+
+        //放到缓存中
+//        [self.imgCacheHashMap setObject:[UIImage imageWithData:imgData] forKey:[NSString stringWithFormat:@"%ld",indexPath.row]];
+        [self.imgCacheData setObject:[UIImage imageWithData:imgData] forKey:[NSString stringWithFormat:@"%ld",(long)indexPath.row]];
+    }
+    
+    
 
     //=============================
     cell.bookNameLab.text = [[NSString stringWithFormat:@"%@",model.im_name.label]stringByReplacingOccurrencesOfString:@"(null)" withString:@""];
