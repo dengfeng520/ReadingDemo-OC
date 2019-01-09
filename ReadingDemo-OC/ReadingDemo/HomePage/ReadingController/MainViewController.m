@@ -13,7 +13,7 @@
 
 
 
-@interface MainViewController ()
+@interface MainViewController ()<NSCacheDelegate>
 
 @end
 
@@ -68,6 +68,10 @@
     return _listView;
 }
 
+- (void)cache:(NSCache *)cache willEvictObject:(id)obj{
+    printf("\n================== remove old data \n");
+}
+
 -(MainViewModel *)viewModel{
     if(_viewModel == nil){
         _viewModel = [[MainViewModel alloc]init];
@@ -92,6 +96,11 @@
 -(NSCache *)imgCacheData{
     if(_imgCacheData == nil){
         _imgCacheData = [[NSCache alloc]init];
+        _imgCacheData.delegate = self;
+        //设置缓存数据数量
+        _imgCacheData.countLimit = LINK_MAX;
+        //设置缓存数据占据内存大小
+        _imgCacheData.totalCostLimit = MAX_CANON * MAX_CANON;
     }
     return _imgCacheData;
 }

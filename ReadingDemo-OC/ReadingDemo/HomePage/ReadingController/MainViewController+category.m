@@ -53,16 +53,25 @@ static NSString * const MainCollectionCellID = @"MainCollectionCellID";
         cell.bookImg.image = cacheImg;
         NSLog(@"======================\n");
     }else{
-        NSURL *imgURL = [NSURL URLWithString:[NSString stringWithFormat:@"%@",imgModel.label]];
+        //异步下载
+        dispatch_async(dispatch_get_global_queue(0, 0), ^{
+
+            NSURL *imgURL = [NSURL URLWithString:[NSString stringWithFormat:@"%@",imgModel.label]];
+            NSData *imgData = [NSData dataWithContentsOfURL:imgURL];
+            //放到缓存中
+//            [self.imgCacheHashMap setObject:[UIImage imageWithData:imgData] forKey:[NSString stringWithFormat:@"%ld",indexPath.row]];
+            [self.imgCacheData setObject:[UIImage imageWithData:imgData] forKey:[NSString stringWithFormat:@"%ld",(long)indexPath.row]];
+
+            dispatch_async(dispatch_get_main_queue(), ^{
+
+               cell.bookImg.image = [UIImage imageWithData:imgData];
+
+            });
+        });
+        
 
 //        [cell.bookImg sd_setImageWithURL:imgURL placeholderImage:[UIImage imageNamed:@"Placeholder"]];
 
-        NSData *imgData = [NSData dataWithContentsOfURL:imgURL];
-        cell.bookImg.image = [UIImage imageWithData:imgData];
-
-        //放到缓存中
-//        [self.imgCacheHashMap setObject:[UIImage imageWithData:imgData] forKey:[NSString stringWithFormat:@"%ld",indexPath.row]];
-        [self.imgCacheData setObject:[UIImage imageWithData:imgData] forKey:[NSString stringWithFormat:@"%ld",(long)indexPath.row]];
     }
     
     
