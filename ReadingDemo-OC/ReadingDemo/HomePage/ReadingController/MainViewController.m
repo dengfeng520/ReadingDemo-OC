@@ -69,7 +69,7 @@
 }
 
 - (void)cache:(NSCache *)cache willEvictObject:(id)obj{
-    printf("\n================== remove old data \n");
+    NSLog(@"\n================== remove old data %@\n",obj);
 }
 
 -(MainViewModel *)viewModel{
