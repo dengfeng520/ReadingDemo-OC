@@ -69,37 +69,45 @@ static NSString * const MainCollectionCellID = @"MainCollectionCellID";
             cell.bookImg.image = [UIImage imageWithData:imgData];
             //加入到内存中
             [self.imgCacheData setObject:[UIImage imageWithData:imgData] forKey:[NSString stringWithFormat:@"%ld",(long)indexPath.row]];
+            
         }else{
-            
-            dispatch_async(self.GCDQueue, ^{
-                //获取图片URL
-                NSURL *imgURL = [NSURL URLWithString:[NSString stringWithFormat:@"%@",imgModel.label]];
-                NSData *imgData = [NSData dataWithContentsOfURL:imgURL];
-                NSLog(@"======================download\n");
-                //[self.imgCacheHashMap setObject:[UIImage imageWithData:imgData] forKey:[NSString stringWithFormat:@"%ld",indexPath.row]];
-                //加入内存缓存中
-                [self.imgCacheData setObject:[UIImage imageWithData:imgData] forKey:[NSString stringWithFormat:@"%ld",(long)indexPath.row]];
-                //同时缓存到硬盘中
-                [imgData writeToFile:fullPathStr atomically:YES];
-                //返回主线程
-                dispatch_async(dispatch_get_main_queue(), ^{
-                    //下载完成后 刷新cell
-                    [collectionView reloadItemsAtIndexPaths:@[indexPath]];
-                    //加载图片
-                    cell.bookImg.image = [UIImage imageWithData:imgData];
+            //设置默认占位图片
+            cell.bookImg.image = [UIImage imageNamed:@"Placeholder"];
+            //滚动时不进行下载操作
+            if(self.listView.dragging == NO && self.listView.decelerating == NO){
+                //开启下载队列
+                dispatch_async(self.GCDQueue, ^{
+                    //获取图片URL
+                    NSURL *imgURL = [NSURL URLWithString:[NSString stringWithFormat:@"%@",imgModel.label]];
+                    NSData *imgData = [NSData dataWithContentsOfURL:imgURL];
+                    NSLog(@"======================download\n");
+                    //[self.imgCacheHashMap setObject:[UIImage imageWithData:imgData] forKey:[NSString stringWithFormat:@"%ld",indexPath.row]];
+                    //加入内存缓存中
+                    [self.imgCacheData setObject:[UIImage imageWithData:imgData] forKey:[NSString stringWithFormat:@"%ld",(long)indexPath.row]];
+                    //同时缓存到硬盘中
+                    [imgData writeToFile:fullPathStr atomically:YES];
+                    //返回主线程
+                    dispatch_async(dispatch_get_main_queue(), ^{
+                        //下载完成后 刷新cell
+                        [collectionView reloadItemsAtIndexPaths:@[indexPath]];
+                        //加载图片
+                        cell.bookImg.image = [UIImage imageWithData:imgData];
+                    });
                 });
-            });
+                //==============================
+//                NSBlockOperation *downloadBlock = [NSBlockOperation  blockOperationWithBlock:^{
+//
+//                    [[NSOperationQueue mainQueue]addOperationWithBlock:^{
+//
+//                    }];
+//                }];
+//                //加入到队列中
+//                [self.queue addOperation:downloadBlock];
+
+            }
+           
             
             
-            //==============================
-//            NSBlockOperation *downloadBlock = [NSBlockOperation  blockOperationWithBlock:^{
-//
-//            [[NSOperationQueue mainQueue]addOperationWithBlock:^{
-//
-//            }];
-//            }];
-//            //加入到队列中
-//            [self.queue addOperation:downloadBlock];
             //==============================
         }
         //        NSURL *imgURL = [NSURL URLWithString:[NSString stringWithFormat:@"%@",imgModel.label]];
@@ -160,6 +168,35 @@ static NSString * const MainCollectionCellID = @"MainCollectionCellID";
     [self.navigationController pushViewController:bookPageView animated:NO];
 }
 
+// MARK: - UIScrollViewDelegate
+//用户停止拖拽时
+- (void)scrollViewDidEndDragging:(UIScrollView *)scrollView willDecelerate:(BOOL)decelerate{
+    if(decelerate){
+        [self loadImageForOnscreenRows];
+    }
+}
+// 完全停止滚动时开始下载图片
+- (void)scrollViewDidEndDecelerating:(UIScrollView *)scrollView{
+    
+    [self loadImageForOnscreenRows];
+}
+//download
+-(void)startImageDownload:(im_image *)imgModel forIndexPath:(NSIndexPath *)indexPath{
+    
+}
+// MARK: - download Image
+-(void)loadImageForOnscreenRows{
+    if(self.bookList.count > 0){
+        NSArray *visiblePaths = [self.listView indexPathsForVisibleItems];
+        for (NSIndexPath *indexPath in visiblePaths){
+            
+            
+        }
+
+    }else{
+        return;
+    }
+}
 
 @end
 

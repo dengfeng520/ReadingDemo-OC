@@ -14,7 +14,7 @@
 
 NS_ASSUME_NONNULL_BEGIN
 
-@interface MainViewController : LTBaseViewController<UICollectionViewDelegate,UICollectionViewDataSource>
+@interface MainViewController : LTBaseViewController<UICollectionViewDelegate,UICollectionViewDataSource,UIScrollViewDelegate>
 
 @property (strong, nonatomic) UICollectionView *listView;
 ///
