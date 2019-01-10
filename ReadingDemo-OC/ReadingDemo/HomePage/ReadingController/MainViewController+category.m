@@ -55,7 +55,6 @@ static NSString * const MainCollectionCellID = @"MainCollectionCellID";
         cell.bookImg.image = cacheImg;
         NSLog(@"======================cache\n");
     }else{
-     
         NSString *fullPathStr = [self getComponentFile:[NSString stringWithFormat:@"%d",(int)indexPath.row]];
         //是否有硬盘缓存
         NSData *imgData = [NSData dataWithContentsOfFile:fullPathStr];
@@ -71,7 +70,7 @@ static NSString * const MainCollectionCellID = @"MainCollectionCellID";
             cell.bookImg.image = [UIImage imageNamed:@"Placeholder"];
             //滚动时不进行下载操作
             if(self.listView.dragging == NO && self.listView.decelerating == NO){
-                
+                //封装处理
                 [self startImageDownload:imgModel forIndexPath:indexPath];
                 //开启下载队列
 //                dispatch_async(self.GCDQueue, ^{
@@ -95,8 +94,6 @@ static NSString * const MainCollectionCellID = @"MainCollectionCellID";
                 //==============================
             }
            
-            
-            
             //==============================
         }
         //        NSURL *imgURL = [NSURL URLWithString:[NSString stringWithFormat:@"%@",imgModel.label]];
