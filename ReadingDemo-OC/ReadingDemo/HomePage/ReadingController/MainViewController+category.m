@@ -94,13 +94,21 @@ static NSString * const MainCollectionCellID = @"MainCollectionCellID";
                 //==============================
             }
            
-            //==============================
+            //==============================options
         }
-        //        NSURL *imgURL = [NSURL URLWithString:[NSString stringWithFormat:@"%@",imgModel.label]];
-        //        [cell.bookImg sd_setImageWithURL:imgURL placeholderImage:[UIImage imageNamed:@"Placeholder"]];
+                NSURL *imgURL = [NSURL URLWithString:[NSString stringWithFormat:@"%@",imgModel.label]];
+
+
+        
+        [cell.bookImg sd_setImageWithURL:imgURL placeholderImage:[UIImage imageNamed:@"Placeholder"] options:1 progress:^(NSInteger receivedSize, NSInteger expectedSize, NSURL * _Nullable targetURL) {
+            
+        } completed:^(UIImage * _Nullable image, NSError * _Nullable error, SDImageCacheType cacheType, NSURL * _Nullable imageURL) {
+            
+        }];
         //        [cell.bookImg sd_setImageWithURL:imgURL placeholderImage:[UIImage imageNamed:@"Placeholder"] completed:^(UIImage * _Nullable image, NSError * _Nullable error, SDImageCacheType cacheType, NSURL * _Nullable imageURL) {
         //
         //        }];
+        
     }
     
     //=============================
@@ -198,9 +206,9 @@ static NSString * const MainCollectionCellID = @"MainCollectionCellID";
         //返回主线程
         dispatch_async(dispatch_get_main_queue(), ^{
             [self.listView reloadItemsAtIndexPaths:@[indexPath]];
-            MainCollectionCell *cell = (MainCollectionCell *)[self.listView cellForItemAtIndexPath:indexPath];
+//            MainCollectionCell *cell = (MainCollectionCell *)[self.listView cellForItemAtIndexPath:indexPath];
             //加载图片
-            cell.bookImg.image = [UIImage imageWithData:imgData];
+//            cell.bookImg.image = [UIImage imageWithData:imgData];
         });
     });
     
