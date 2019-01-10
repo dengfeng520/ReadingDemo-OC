@@ -70,23 +70,37 @@ static NSString * const MainCollectionCellID = @"MainCollectionCellID";
             //加入到内存中
             [self.imgCacheData setObject:[UIImage imageWithData:imgData] forKey:[NSString stringWithFormat:@"%ld",(long)indexPath.row]];
         }else{
-            //异步下载
-            dispatch_async(dispatch_get_global_queue(0, 0), ^{
+            
+            dispatch_async(self.GCDQueue, ^{
                 //获取图片URL
                 NSURL *imgURL = [NSURL URLWithString:[NSString stringWithFormat:@"%@",imgModel.label]];
                 NSData *imgData = [NSData dataWithContentsOfURL:imgURL];
                 NSLog(@"======================download\n");
-                //放到缓存中
                 //[self.imgCacheHashMap setObject:[UIImage imageWithData:imgData] forKey:[NSString stringWithFormat:@"%ld",indexPath.row]];
                 //加入内存缓存中
                 [self.imgCacheData setObject:[UIImage imageWithData:imgData] forKey:[NSString stringWithFormat:@"%ld",(long)indexPath.row]];
                 //同时缓存到硬盘中
                 [imgData writeToFile:fullPathStr atomically:YES];
+                //返回主线程
                 dispatch_async(dispatch_get_main_queue(), ^{
-                    //返回主线程刷新UI
+                    //下载完成后 刷新cell
+                    [collectionView reloadItemsAtIndexPaths:@[indexPath]];
+                    //加载图片
                     cell.bookImg.image = [UIImage imageWithData:imgData];
                 });
             });
+            
+            
+            //==============================
+//            NSBlockOperation *downloadBlock = [NSBlockOperation  blockOperationWithBlock:^{
+//
+//            [[NSOperationQueue mainQueue]addOperationWithBlock:^{
+//
+//            }];
+//            }];
+//            //加入到队列中
+//            [self.queue addOperation:downloadBlock];
+            //==============================
         }
         //        NSURL *imgURL = [NSURL URLWithString:[NSString stringWithFormat:@"%@",imgModel.label]];
         //        [cell.bookImg sd_setImageWithURL:imgURL placeholderImage:[UIImage imageNamed:@"Placeholder"]];

@@ -25,6 +25,10 @@ NS_ASSUME_NONNULL_BEGIN
 @property (strong, nonatomic) NSMutableDictionary *imgCacheHashMap;
 ///
 @property (strong, nonatomic) NSCache *imgCacheData;
+///
+@property (strong, nonatomic) NSOperationQueue *queue;
+///
+@property (retain, nonatomic) dispatch_queue_t GCDQueue;
 
 
 @end

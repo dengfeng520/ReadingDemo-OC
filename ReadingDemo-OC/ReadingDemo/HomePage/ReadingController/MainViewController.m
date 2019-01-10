@@ -132,4 +132,17 @@
     return _imgCacheData;
 }
 
+-(NSOperationQueue *)queue{
+    if(_queue == nil){
+        _queue = [[NSOperationQueue alloc]init];
+    }
+    return _queue;
+}
+-(dispatch_queue_t)GCDQueue{
+    if(_GCDQueue == nil){
+        _GCDQueue = dispatch_queue_create(DISPATCH_QUEUE_PRIORITY_DEFAULT, 0);
+    }
+    return _GCDQueue;
+}
+
 @end
