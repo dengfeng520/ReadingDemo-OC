@@ -55,12 +55,8 @@ static NSString * const MainCollectionCellID = @"MainCollectionCellID";
         cell.bookImg.image = cacheImg;
         NSLog(@"======================cache\n");
     }else{
-        //获取沙盒路径
-        NSString *fileName = [[NSString stringWithFormat:@"%d",(int)indexPath.row]lastPathComponent];
-        //获取Cache路径
-        NSString *cachePahtStr = [NSSearchPathForDirectoriesInDomains(NSCachesDirectory, NSUserDomainMask, YES) lastObject];
-        //获取完整路径
-        NSString *fullPathStr = [cachePahtStr stringByAppendingPathComponent:fileName];
+     
+        NSString *fullPathStr = [self getComponentFile:[NSString stringWithFormat:@"%d",(int)indexPath.row]];
         //是否有硬盘缓存
         NSData *imgData = [NSData dataWithContentsOfFile:fullPathStr];
         if(imgData){
@@ -103,7 +99,6 @@ static NSString * const MainCollectionCellID = @"MainCollectionCellID";
 //                }];
 //                //加入到队列中
 //                [self.queue addOperation:downloadBlock];
-
             }
            
             
@@ -117,7 +112,6 @@ static NSString * const MainCollectionCellID = @"MainCollectionCellID";
         //        }];
     }
     
-
     //=============================
     cell.bookNameLab.text = [[NSString stringWithFormat:@"%@",model.im_name.label]stringByReplacingOccurrencesOfString:@"(null)" withString:@""];
     //=============================
@@ -180,22 +174,54 @@ static NSString * const MainCollectionCellID = @"MainCollectionCellID";
     
     [self loadImageForOnscreenRows];
 }
-//download
--(void)startImageDownload:(im_image *)imgModel forIndexPath:(NSIndexPath *)indexPath{
-    
-}
+
 // MARK: - download Image
 -(void)loadImageForOnscreenRows{
     if(self.bookList.count > 0){
         NSArray *visiblePaths = [self.listView indexPathsForVisibleItems];
         for (NSIndexPath *indexPath in visiblePaths){
-            
-            
+            //============================= get Model data
+            ReadModel *model = self.bookList[indexPath.row];
+            im_image *imgModel = model.im_image.lastObject;
+            [self startImageDownload:imgModel forIndexPath:indexPath];
         }
-
     }else{
         return;
     }
+}
+
+//download
+-(void)startImageDownload:(im_image *)imgModel forIndexPath:(NSIndexPath *)indexPath{
+    
+    NSBlockOperation *downloadBlock = [NSBlockOperation  blockOperationWithBlock:^{
+        //获取图片URL
+        NSURL *imgURL = [NSURL URLWithString:[NSString stringWithFormat:@"%@",imgModel.label]];
+        NSData *imgData = [NSData dataWithContentsOfURL:imgURL];
+        NSLog(@"======================download\n");
+        //加入内存缓存中
+        [self.imgCacheData setObject:[UIImage imageWithData:imgData] forKey:[NSString stringWithFormat:@"%ld",(long)indexPath.row]];
+        //获取沙盒路径
+        NSString *fullPathStr = [self getComponentFile:[NSString stringWithFormat:@"%ld",(long)indexPath.row]];
+        //同时缓存到硬盘中
+        [imgData writeToFile:fullPathStr atomically:YES];
+        
+        [[NSOperationQueue mainQueue]addOperationWithBlock:^{
+            
+        }];
+    }];
+    //加入到队列中
+    [self.queue addOperation:downloadBlock]; 
+}
+
+-(NSString *)getComponentFile:(NSString *)fileName{
+    //获取沙盒路径
+    NSString *ComponentFileName = [fileName lastPathComponent];
+    //获取Cache路径
+    NSString *cachePahtStr = [NSSearchPathForDirectoriesInDomains(NSCachesDirectory, NSUserDomainMask, YES) lastObject];
+    //获取完整路径
+    NSString *fullPathStr = [cachePahtStr stringByAppendingPathComponent:ComponentFileName];
+    
+    return fullPathStr;
 }
 
 @end
