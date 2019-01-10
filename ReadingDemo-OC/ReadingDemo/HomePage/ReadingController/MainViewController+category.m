@@ -192,7 +192,6 @@ static NSString * const MainCollectionCellID = @"MainCollectionCellID";
 
 //download
 -(void)startImageDownload:(im_image *)imgModel forIndexPath:(NSIndexPath *)indexPath{
-    
     NSBlockOperation *downloadBlock = [NSBlockOperation  blockOperationWithBlock:^{
         //获取图片URL
         NSURL *imgURL = [NSURL URLWithString:[NSString stringWithFormat:@"%@",imgModel.label]];
@@ -204,13 +203,18 @@ static NSString * const MainCollectionCellID = @"MainCollectionCellID";
         NSString *fullPathStr = [self getComponentFile:[NSString stringWithFormat:@"%ld",(long)indexPath.row]];
         //同时缓存到硬盘中
         [imgData writeToFile:fullPathStr atomically:YES];
-        
+        // 返回主线程
         [[NSOperationQueue mainQueue]addOperationWithBlock:^{
+            //下载完成后 刷新cell
+            [self.listView reloadItemsAtIndexPaths:@[indexPath]];
             
+            MainCollectionCell *cell = (MainCollectionCell *)[self.listView cellForItemAtIndexPath:indexPath];
+            //加载图片
+            cell.bookImg.image = [UIImage imageWithData:imgData];
         }];
     }];
     //加入到队列中
-    [self.queue addOperation:downloadBlock]; 
+    [self.queue addOperation:downloadBlock];
 }
 
 -(NSString *)getComponentFile:(NSString *)fileName{
