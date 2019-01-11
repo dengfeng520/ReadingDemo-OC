@@ -44,62 +44,65 @@ static NSString * const MainCollectionCellID = @"MainCollectionCellID";
 }
 
 - (UICollectionViewCell *)collectionView:(UICollectionView *)collectionView cellForItemAtIndexPath:(NSIndexPath *)indexPath{
-    
     MainCollectionCell *cell = [collectionView dequeueReusableCellWithReuseIdentifier:MainCollectionCellID forIndexPath:indexPath];
-    cell.backgroundColor = [UIColor whiteColor];
-    
     __weak typeof (self) weakSelf = self;
-    //============================= 从Model中获取数据
-    ReadModel *model = weakSelf.bookList[indexPath.row];
-    im_image *imgModel = model.im_image.lastObject;    
-    //=============================
-    //    UIImage *cacheImg = [self.imgCacheHashMap objectForKey:[NSString stringWithFormat:@"%ld",indexPath.row]];
-    //先判断内存中是否有缓存数据
-    UIImage *cacheImg = [self.imgCacheData objectForKey:[NSString stringWithFormat:@"%ld",(long)indexPath.row]];
-    //检查内存缓存
-    if(cacheImg){
-        cell.bookImg.image = cacheImg;
-        NSLog(@"======================cache\n");
-    }else{
-        NSString *fullPathStr = [self getComponentFile:[NSString stringWithFormat:@"%d",(int)indexPath.row]];
-        //是否有硬盘缓存
-        NSData *imgData = [NSData dataWithContentsOfFile:fullPathStr];
-        if(imgData){
-            NSLog(@"=====================hard disk\n");
-            //赋值操作
-            cell.bookImg.image = [UIImage imageWithData:imgData];
-            //加入到内存中
-            [self.imgCacheData setObject:[UIImage imageWithData:imgData] forKey:[NSString stringWithFormat:@"%ld",(long)indexPath.row]];
-            
+    // 设置默认占位图片
+    cell.bookImg.image = [UIImage imageNamed:@"Placeholder"];
+    [self addTasks:^{
+        //============================= 从Model中获取数据
+        ReadModel *model = weakSelf.bookList[indexPath.row];
+        im_image *imgModel = model.im_image.lastObject;
+        //=============================
+        //UIImage *cacheImg = [self.imgCacheHashMap objectForKey:[NSString stringWithFormat:@"%ld",indexPath.row]];
+        // 先判断内存中是否有缓存数据
+        UIImage *cacheImg = [weakSelf.imgCacheData objectForKey:[NSString stringWithFormat:@"%ld",(long)indexPath.row]];
+        // 检查内存缓存
+        if(cacheImg){
+            cell.bookImg.image = cacheImg;
+            NSLog(@"======================cache\n");
         }else{
-            //设置默认占位图片
-            cell.bookImg.image = [UIImage imageNamed:@"Placeholder"];
-            //滚动时不进行下载操作
-            if(self.listView.dragging == NO && self.listView.decelerating == NO){
-                //封装处理
-                [self startImageDownload:imgModel forIndexPath:indexPath];
-                //开启下载队列
-//                dispatch_async(self.GCDQueue, ^{
-//                    //获取图片URL
-//                    NSURL *imgURL = [NSURL URLWithString:[NSString stringWithFormat:@"%@",imgModel.label]];
-//                    NSData *imgData = [NSData dataWithContentsOfURL:imgURL];
-//                    NSLog(@"======================download\n");
-//                    //[self.imgCacheHashMap setObject:[UIImage imageWithData:imgData] forKey:[NSString stringWithFormat:@"%ld",indexPath.row]];
-//                    //加入内存缓存中
-//                    [self.imgCacheData setObject:[UIImage imageWithData:imgData] forKey:[NSString stringWithFormat:@"%ld",(long)indexPath.row]];
-//                    //同时缓存到硬盘中
-//                    [imgData writeToFile:fullPathStr atomically:YES];
-//                    //返回主线程
-//                    dispatch_async(dispatch_get_main_queue(), ^{
-//                        //下载完成后 刷新cell
-//                        [collectionView reloadItemsAtIndexPaths:@[indexPath]];
-//                        //加载图片
-//                        cell.bookImg.image = [UIImage imageWithData:imgData];
+            NSString *fullPathStr = [weakSelf getComponentFile:[NSString stringWithFormat:@"%d",(int)indexPath.row]];
+            // 是否有硬盘缓存
+            NSData *imgData = [NSData dataWithContentsOfFile:fullPathStr];
+            if(imgData){
+                NSLog(@"=====================hard disk\n");
+                // 赋值操作
+                cell.bookImg.image = [UIImage imageWithData:imgData];
+                // 加入到内存中
+                [weakSelf.imgCacheData setObject:[UIImage imageWithData:imgData] forKey:[NSString stringWithFormat:@"%ld",(long)indexPath.row]];
+            }else{
+                // 滚动时不进行下载操作
+                if(weakSelf.listView.dragging == NO && weakSelf.listView.decelerating == NO){
+                    //封装处理
+                    [weakSelf startImageDownload:imgModel forIndexPath:indexPath];
+                    //开启下载队列
+//                    dispatch_async(self.GCDQueue, ^{
+//                        //获取图片URL
+//                        NSURL *imgURL = [NSURL URLWithString:[NSString stringWithFormat:@"%@",imgModel.label]];
+//                        NSData *imgData = [NSData dataWithContentsOfURL:imgURL];
+//                        NSLog(@"======================download\n");
+//                        //[self.imgCacheHashMap setObject:[UIImage imageWithData:imgData] forKey:[NSString stringWithFormat:@"%ld",indexPath.row]];
+//                        //加入内存缓存中
+//                        [self.imgCacheData setObject:[UIImage imageWithData:imgData] forKey:[NSString stringWithFormat:@"%ld",(long)indexPath.row]];
+//                        //同时缓存到硬盘中
+//                        [imgData writeToFile:fullPathStr atomically:YES];
+//                        //返回主线程
+//                        dispatch_async(dispatch_get_main_queue(), ^{
+//                            //下载完成后 刷新cell
+//                            [collectionView reloadItemsAtIndexPaths:@[indexPath]];
+//                            //加载图片
+//                            cell.bookImg.image = [UIImage imageWithData:imgData];
+//                        });
 //                    });
-//                });
-                //==============================
+                    //==============================
+                }
             }
         }
+        //=============================
+        cell.bookNameLab.text = [[NSString stringWithFormat:@"%@",model.im_name.label]stringByReplacingOccurrencesOfString:@"(null)" withString:@""];
+        //=============================
+    }];
+
         //==============================
 //        NSURL *imgURL = [NSURL URLWithString:[NSString stringWithFormat:@"%@",imgModel.label]];
 //        [cell.bookImg sd_setImageWithURL:imgURL placeholderImage:[UIImage imageNamed:@"Placeholder"] options:1 progress:^(NSInteger receivedSize, NSInteger expectedSize, NSURL * _Nullable targetURL) {
@@ -107,10 +110,8 @@ static NSString * const MainCollectionCellID = @"MainCollectionCellID";
 //        } completed:^(UIImage * _Nullable image, NSError * _Nullable error, SDImageCacheType cacheType, NSURL * _Nullable imageURL) {
 //
 //        }];
-    }
-    //=============================
-    cell.bookNameLab.text = [[NSString stringWithFormat:@"%@",model.im_name.label]stringByReplacingOccurrencesOfString:@"(null)" withString:@""];
-    //=============================
+  
+
     
     return cell;
 }
