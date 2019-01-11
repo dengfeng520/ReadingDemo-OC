@@ -20,24 +20,19 @@ static NSString * const MainCollectionCellID = @"MainCollectionCellID";
 
 -(void)loadView{
     [super loadView];
+    //注册Cell
+    [self.listView registerClass:[MainCollectionCell class] forCellWithReuseIdentifier:MainCollectionCellID];
     // 可以自己设置最大任务数量
-    self.maxTaskCount = 50;
+    self.maxTaskCount = 200;
     // 创建定时器
     CADisplayLink *displayLink = [CADisplayLink displayLinkWithTarget:self selector:@selector(runLoopStayActive)];
     // 加入到RunLoop中
     [displayLink addToRunLoop:[NSRunLoop currentRunLoop] forMode:NSRunLoopCommonModes];
-    // 添加观察者
-    
-    //注册Cell
-    [self.listView registerClass:[MainCollectionCell class] forCellWithReuseIdentifier:MainCollectionCellID];
+    // add runloop observer
+    [self addRunLoopObserver];
 }
 
-// MARK: - RunLoop Stay active
--(void)runLoopStayActive{
-    //do-nothing
-}
-
-// MARK: - UITableViewDelegate
+// MARK: - UICollectionViewDelegate
 -(NSInteger)numberOfSectionsInCollectionView:(UICollectionView *)collectionView{
     
     return 1;
@@ -56,9 +51,7 @@ static NSString * const MainCollectionCellID = @"MainCollectionCellID";
     __weak typeof (self) weakSelf = self;
     //============================= 从Model中获取数据
     ReadModel *model = weakSelf.bookList[indexPath.row];
-    im_image *imgModel = model.im_image.lastObject;
-    
-    
+    im_image *imgModel = model.im_image.lastObject;    
     //=============================
     //    UIImage *cacheImg = [self.imgCacheHashMap objectForKey:[NSString stringWithFormat:@"%ld",indexPath.row]];
     //先判断内存中是否有缓存数据
@@ -237,6 +230,62 @@ static NSString * const MainCollectionCellID = @"MainCollectionCellID";
     
     return fullPathStr;
 }
+
+
+// MARK: - ================================= About RunLoop
+/// RunLoop Stay active
+-(void)runLoopStayActive{
+    //do-nothing
+}
+/// RunLoop Observer
+-(void)addRunLoopObserver{
+    // get current now RunLoop
+    CFRunLoopRef nowRunloop = CFRunLoopGetCurrent();
+    // create tasks
+    CFRunLoopObserverContext context = {
+        0,
+        (__bridge void *)(self),
+        &CFRetain,
+        &CFRelease,
+        NULL
+    };
+    //
+    static CFRunLoopObserverRef runLoopDefaultModeObserver;
+    runLoopDefaultModeObserver = CFRunLoopObserverCreate(kCFAllocatorDefault,
+                                                  kCFRunLoopBeforeWaiting,
+                                                  YES,
+                                                  0,
+                                                  &callBack,
+                                                  &context);
+    // add Observer for RunLoop
+    CFRunLoopAddObserver(nowRunloop, runLoopDefaultModeObserver, kCFRunLoopCommonModes);
+    // memory release
+    CFRelease(runLoopDefaultModeObserver);
+}
+///
+static void callBack(CFRunLoopObserverRef observer, CFRunLoopActivity activity, void *info) {
+    MainViewController *mainView = (__bridge MainViewController *)info;
+    //
+    if (mainView.tasksList.count == 0) return;
+    // 从数组中取出任务
+    runloopBlock block = [mainView.tasksList firstObject];
+    // 执行任务
+    if (block) {
+        block();
+    }
+    // 执行完任务之后移除任务
+    [mainView.tasksList removeObjectAtIndex:0];
+}
+/// add tasks
+-(void)addTasks:(runloopBlock)blocks{
+    // sava new tasks
+    [self.tasksList addObject:blocks];
+    // if the maximum number of tasks is exceeded, remove the previous task
+    if(self.tasksList.count > self.maxTaskCount){
+        [self.tasksList removeObjectAtIndex:0];
+    }
+}
+
 
 @end
 
