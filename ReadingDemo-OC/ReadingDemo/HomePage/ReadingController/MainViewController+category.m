@@ -20,13 +20,13 @@ static NSString * const MainCollectionCellID = @"MainCollectionCellID";
 
 -(void)loadView{
     [super loadView];
-    //注册Cell
+    // create cell
     [self.listView registerClass:[MainCollectionCell class] forCellWithReuseIdentifier:MainCollectionCellID];
-    // 可以自己设置最大任务数量
+    // Set the maximum number of tasks
     self.maxTaskCount = 200;
-    // 创建定时器
+    // create Timer
     CADisplayLink *displayLink = [CADisplayLink displayLinkWithTarget:self selector:@selector(runLoopStayActive)];
-    // 加入到RunLoop中
+    // join to RunLoop
     [displayLink addToRunLoop:[NSRunLoop currentRunLoop] forMode:NSRunLoopCommonModes];
     // add runloop observer
     [self addRunLoopObserver];
@@ -189,8 +189,21 @@ static NSString * const MainCollectionCellID = @"MainCollectionCellID";
 
 //download
 -(void)startImageDownload:(im_image *)imgModel forIndexPath:(NSIndexPath *)indexPath{
+    
+    // 强引用 ---> 弱引用
+    __weak typeof (self) weakSelf = self;
     //开启下载队列
-    dispatch_async(self.GCDQueue, ^{
+//    dispatch_async(weakSelf.GCDQueue, ^{
+//
+//        //返回主线程
+//        dispatch_async(dispatch_get_main_queue(), ^{
+//            
+//            MainCollectionCell *cell = (MainCollectionCell *)[self.listView cellForItemAtIndexPath:indexPath];
+//            cell.bookImg.image = [UIImage imageWithData:imgData];
+//        });
+//    });
+    
+    NSBlockOperation *downloadBlock = [NSBlockOperation  blockOperationWithBlock:^{
         //获取图片URL
         NSURL *imgURL = [NSURL URLWithString:[NSString stringWithFormat:@"%@",imgModel.label]];
         NSData *imgData = [NSData dataWithContentsOfURL:imgURL];
@@ -198,27 +211,17 @@ static NSString * const MainCollectionCellID = @"MainCollectionCellID";
         //加入内存缓存中
         [self.imgCacheData setObject:[UIImage imageWithData:imgData] forKey:[NSString stringWithFormat:@"%ld",(long)indexPath.row]];
         //获取沙盒路径
-        NSString *fullPathStr = [self getComponentFile:[NSString stringWithFormat:@"%ld",(long)indexPath.row]];
+        NSString *fullPathStr = [weakSelf getComponentFile:[NSString stringWithFormat:@"%ld",(long)indexPath.row]];
         //同时缓存到硬盘中
         [imgData writeToFile:fullPathStr atomically:YES];
-        //返回主线程
-        dispatch_async(dispatch_get_main_queue(), ^{
-            [self.listView reloadItemsAtIndexPaths:@[indexPath]];
-//            MainCollectionCell *cell = (MainCollectionCell *)[self.listView cellForItemAtIndexPath:indexPath];
-            //加载图片
-//            cell.bookImg.image = [UIImage imageWithData:imgData];
-        });
-    });
-    
-//    NSBlockOperation *downloadBlock = [NSBlockOperation  blockOperationWithBlock:^{
-//
-//        // 返回主线程
-//        [[NSOperationQueue mainQueue]addOperationWithBlock:^{
-//
-//        }];
-//    }];
-//    //加入到队列中
-//    [self.queue addOperation:downloadBlock];
+        // 返回主线程
+        [[NSOperationQueue mainQueue]addOperationWithBlock:^{
+            //此处 数据源已经变了 直接刷新Cell会再次调用cellForItemAtIndexPath代理，
+            [weakSelf.listView reloadItemsAtIndexPaths:@[indexPath]];
+        }];
+    }];
+    //加入到队列中
+    [self.queue addOperation:downloadBlock];
 }
 
 -(NSString *)getComponentFile:(NSString *)fileName{
@@ -268,13 +271,13 @@ static void callBack(CFRunLoopObserverRef observer, CFRunLoopActivity activity, 
     MainViewController *mainView = (__bridge MainViewController *)info;
     //
     if (mainView.tasksList.count == 0) return;
-    // 从数组中取出任务
+    // Take the task from the array
     runloopBlock block = [mainView.tasksList firstObject];
-    // 执行任务
+    // Performing tasks
     if (block) {
         block();
     }
-    // 执行完任务之后移除任务
+    // Remove the task after performing the task
     [mainView.tasksList removeObjectAtIndex:0];
 }
 /// add tasks
