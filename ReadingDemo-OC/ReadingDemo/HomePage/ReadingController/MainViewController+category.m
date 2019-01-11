@@ -269,7 +269,7 @@ static NSString * const MainCollectionCellID = @"MainCollectionCellID";
 ///
 static void callBack(CFRunLoopObserverRef observer, CFRunLoopActivity activity, void *info) {
     MainViewController *mainView = (__bridge MainViewController *)info;
-    //
+    // if there is no tasks ，quit
     if (mainView.tasksList.count == 0) return;
     // Take the task from the array
     runloopBlock block = [mainView.tasksList firstObject];
