@@ -10,7 +10,7 @@
 #import "MainCollectionCell.h"
 #import "UIImageView+WebCache.h"
 
-typedef void(^runloopBlock)(void);
+
 
 
 static NSString * const MainCollectionCellID = @"MainCollectionCellID";
@@ -20,11 +20,24 @@ static NSString * const MainCollectionCellID = @"MainCollectionCellID";
 
 -(void)loadView{
     [super loadView];
+    // 可以自己设置最大任务数量
+    self.maxTaskCount = 50;
+    // 创建定时器
+    CADisplayLink *displayLink = [CADisplayLink displayLinkWithTarget:self selector:@selector(runLoopStayActive)];
+    // 加入到RunLoop中
+    [displayLink addToRunLoop:[NSRunLoop currentRunLoop] forMode:NSRunLoopCommonModes];
+    // 添加观察者
     
     //注册Cell
     [self.listView registerClass:[MainCollectionCell class] forCellWithReuseIdentifier:MainCollectionCellID];
 }
 
+// MARK: - RunLoop Stay active
+-(void)runLoopStayActive{
+    //do-nothing
+}
+
+// MARK: - UITableViewDelegate
 -(NSInteger)numberOfSectionsInCollectionView:(UICollectionView *)collectionView{
     
     return 1;
@@ -93,24 +106,15 @@ static NSString * const MainCollectionCellID = @"MainCollectionCellID";
 //                });
                 //==============================
             }
-           
-            //==============================options
         }
-                NSURL *imgURL = [NSURL URLWithString:[NSString stringWithFormat:@"%@",imgModel.label]];
-
-
-        
-        [cell.bookImg sd_setImageWithURL:imgURL placeholderImage:[UIImage imageNamed:@"Placeholder"] options:1 progress:^(NSInteger receivedSize, NSInteger expectedSize, NSURL * _Nullable targetURL) {
-            
-        } completed:^(UIImage * _Nullable image, NSError * _Nullable error, SDImageCacheType cacheType, NSURL * _Nullable imageURL) {
-            
-        }];
-        //        [cell.bookImg sd_setImageWithURL:imgURL placeholderImage:[UIImage imageNamed:@"Placeholder"] completed:^(UIImage * _Nullable image, NSError * _Nullable error, SDImageCacheType cacheType, NSURL * _Nullable imageURL) {
-        //
-        //        }];
-        
+        //==============================
+//        NSURL *imgURL = [NSURL URLWithString:[NSString stringWithFormat:@"%@",imgModel.label]];
+//        [cell.bookImg sd_setImageWithURL:imgURL placeholderImage:[UIImage imageNamed:@"Placeholder"] options:1 progress:^(NSInteger receivedSize, NSInteger expectedSize, NSURL * _Nullable targetURL) {
+//
+//        } completed:^(UIImage * _Nullable image, NSError * _Nullable error, SDImageCacheType cacheType, NSURL * _Nullable imageURL) {
+//
+//        }];
     }
-    
     //=============================
     cell.bookNameLab.text = [[NSString stringWithFormat:@"%@",model.im_name.label]stringByReplacingOccurrencesOfString:@"(null)" withString:@""];
     //=============================

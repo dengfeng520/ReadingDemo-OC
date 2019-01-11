@@ -14,6 +14,9 @@
 
 NS_ASSUME_NONNULL_BEGIN
 
+//任务blocks
+typedef void(^runloopBlock)(void);
+
 @interface MainViewController : LTBaseViewController<UICollectionViewDelegate,UICollectionViewDataSource,UIScrollViewDelegate>
 
 @property (strong, nonatomic) UICollectionView *listView;
@@ -29,7 +32,10 @@ NS_ASSUME_NONNULL_BEGIN
 @property (strong, nonatomic) NSOperationQueue *queue;
 ///
 @property (retain, nonatomic) dispatch_queue_t GCDQueue;
-
+// 装任务的数组
+@property (nonatomic, strong) NSMutableArray *tasksList;
+// 最大任务数
+@property (nonatomic, assign) NSUInteger maxTaskCount;
 
 @end
 

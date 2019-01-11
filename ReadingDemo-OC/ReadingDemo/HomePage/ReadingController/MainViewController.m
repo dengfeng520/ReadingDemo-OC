@@ -27,7 +27,6 @@
 
     __weak typeof (self) weakSelf = self;
     
-    
     NSString *filePath = [self documentsPath:@"homeList.txt"];
     
     NSArray *temporaryList = [NSArray arrayWithContentsOfFile:filePath];
@@ -143,6 +142,13 @@
         _GCDQueue = dispatch_queue_create(DISPATCH_QUEUE_PRIORITY_DEFAULT, 0);
     }
     return _GCDQueue;
+}
+
+-(NSMutableArray *)tasksList{
+    if(_tasksList == nil){
+        _tasksList = [NSMutableArray array];
+    }
+    return _tasksList;
 }
 
 @end
