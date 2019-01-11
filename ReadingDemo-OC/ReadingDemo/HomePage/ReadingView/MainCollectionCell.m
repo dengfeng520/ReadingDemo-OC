@@ -15,6 +15,9 @@
     self = [super initWithFrame:frame];
     if(self){
         
+        //
+        self.backgroundColor = [UIColor whiteColor];
+
         //============================
         __weak typeof (self) weakself = self;
         //============================

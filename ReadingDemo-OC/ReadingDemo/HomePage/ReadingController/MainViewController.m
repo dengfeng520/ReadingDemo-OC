@@ -7,13 +7,11 @@
 //
 
 #import "MainViewController.h"
-
 #import "MJExtension.h"
 #import "MBProgressHUD.h"
 
-
-
 @interface MainViewController ()<NSCacheDelegate>
+
 
 @end
 
@@ -23,13 +21,27 @@
     [super viewDidLoad];
     // Do any additional setup after loading the view.
     
+    NSCache *testCache = [[NSCache alloc]init];
+    testCache.delegate = self;
+    //设置缓存数据数量
+    testCache.countLimit = 5;
+    for(int i = 0;i< 10;i++){
+        [testCache setObject:[NSNumber numberWithInt:i] forKey:[NSString stringWithFormat:@"%d",i]];
+    }
+    dispatch_after(dispatch_time(DISPATCH_TIME_NOW, (int64_t)(2 * NSEC_PER_SEC)), dispatch_get_main_queue(), ^{
+        for(int x = 0;x<10;x++){
+            NSNumber *number = [testCache objectForKey:[NSString stringWithFormat:@"%d",x]];
+            NSLog(@"cache data ==============%@",number);
+        }
+    });
+
+    
     self.title = NSLocalizedString(@"bookshelf",  @"description for this key.");
 
     __weak typeof (self) weakSelf = self;
     
-    
     NSString *filePath = [self documentsPath:@"homeList.txt"];
-    
+
     NSArray *temporaryList = [NSArray arrayWithContentsOfFile:filePath];
     NSLog(@"==============%ld",(long)temporaryList.count);
     if(temporaryList){
@@ -39,13 +51,13 @@
         weakSelf.bookList = [lsList mutableCopy];
         // ---> Update
         [weakSelf.listView reloadData];
-        
+
     }else{
         [MBProgressHUD showHUDAddedTo:self.view animated:true];
 
         //步骤四:订阅信号量
         [[[self.viewModel.listCommand executionSignals]switchToLatest]subscribeNext:^(id  _Nullable x) {
-            
+
             [MBProgressHUD hideHUDForView:weakSelf.view animated:true];
             if([[x allKeys]containsObject:@"feed"]){
                 NSDictionary *hashMap = [x objectForKey:@"feed"];
@@ -54,7 +66,7 @@
                 weakSelf.bookList = [lsList mutableCopy];
                 // ---> Update
                 [weakSelf.listView reloadData];
-                
+
                 dispatch_async(dispatch_get_global_queue(0, 0), ^{
                     NSLog(@"List Https=================%ld",(long)lsList.count);
                     // cache
@@ -96,7 +108,7 @@
 }
 
 - (void)cache:(NSCache *)cache willEvictObject:(id)obj{
-    NSLog(@"\n================== remove old data %@\n",obj);
+//    NSLog(@"\n================== remove old data %@\n",obj);
 }
 
 -(MainViewModel *)viewModel{
@@ -143,6 +155,13 @@
         _GCDQueue = dispatch_queue_create(DISPATCH_QUEUE_PRIORITY_DEFAULT, 0);
     }
     return _GCDQueue;
+}
+
+-(NSMutableArray *)tasksList{
+    if(_tasksList == nil){
+        _tasksList = [NSMutableArray array];
+    }
+    return _tasksList;
 }
 
 @end
