@@ -74,14 +74,14 @@ static NSString * const MainCollectionCellID = @"MainCollectionCellID";
                     //封装处理
                     [weakSelf startImageDownload:imgModel forIndexPath:indexPath];
                     //开启下载队列
-//                    dispatch_async(self.GCDQueue, ^{
+//                    dispatch_async(weakSelf.GCDQueue, ^{
 //                        //获取图片URL
 //                        NSURL *imgURL = [NSURL URLWithString:[NSString stringWithFormat:@"%@",imgModel.label]];
 //                        NSData *imgData = [NSData dataWithContentsOfURL:imgURL];
 //                        NSLog(@"======================download\n");
 //                        //[self.imgCacheHashMap setObject:[UIImage imageWithData:imgData] forKey:[NSString stringWithFormat:@"%ld",indexPath.row]];
 //                        //加入内存缓存中
-//                        [self.imgCacheData setObject:[UIImage imageWithData:imgData] forKey:[NSString stringWithFormat:@"%ld",(long)indexPath.row]];
+//                        [weakSelf.imgCacheData setObject:[UIImage imageWithData:imgData] forKey:[NSString stringWithFormat:@"%ld",(long)indexPath.row]];
 //                        //同时缓存到硬盘中
 //                        [imgData writeToFile:fullPathStr atomically:YES];
 //                        //返回主线程
@@ -141,7 +141,7 @@ static NSString * const MainCollectionCellID = @"MainCollectionCellID";
 
 -(void)collectionView:(UICollectionView *)collectionView didSelectItemAtIndexPath:(NSIndexPath *)indexPath{
     
-    UIViewController *bookPageView = [[NSClassFromString(@"BookPageViewController") alloc]init];
+    LTBaseViewController *bookPageView = [[NSClassFromString(@"BookPageViewController") alloc]init];
     //    SEL aSelector = NSSelectorFromString(@"setIsPlayLaunchAnimation:");
     //    if ([bookPageView respondsToSelector:aSelector]) {
     //        IMP aIMP = [bookPageView methodForSelector:aSelector];
@@ -223,7 +223,7 @@ static NSString * const MainCollectionCellID = @"MainCollectionCellID";
     //加入到队列中
     [self.queue addOperation:downloadBlock];
 }
-
+// 获取沙盒路径
 -(NSString *)getComponentFile:(NSString *)fileName{
     //获取沙盒路径
     NSString *ComponentFileName = [fileName lastPathComponent];
