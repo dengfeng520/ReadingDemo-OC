@@ -11,8 +11,6 @@
 #import "UIImageView+WebCache.h"
 
 
-
-
 static NSString * const MainCollectionCellID = @"MainCollectionCellID";
 
 
@@ -197,7 +195,7 @@ static NSString * const MainCollectionCellID = @"MainCollectionCellID";
 //
 //        //返回主线程
 //        dispatch_async(dispatch_get_main_queue(), ^{
-//            
+//
 //            MainCollectionCell *cell = (MainCollectionCell *)[self.listView cellForItemAtIndexPath:indexPath];
 //            cell.bookImg.image = [UIImage imageWithData:imgData];
 //        });
@@ -208,12 +206,14 @@ static NSString * const MainCollectionCellID = @"MainCollectionCellID";
         NSURL *imgURL = [NSURL URLWithString:[NSString stringWithFormat:@"%@",imgModel.label]];
         NSData *imgData = [NSData dataWithContentsOfURL:imgURL];
         NSLog(@"======================download\n");
+        NSData *finallyImgData = UIImageJPEGRepresentation([UIImage imageWithData:imgData], 0.8);
+        //
         //加入内存缓存中
-        [self.imgCacheData setObject:[UIImage imageWithData:imgData] forKey:[NSString stringWithFormat:@"%ld",(long)indexPath.row]];
+        [self.imgCacheData setObject:[UIImage imageWithData:finallyImgData] forKey:[NSString stringWithFormat:@"%ld",(long)indexPath.row]];
         //获取沙盒路径
         NSString *fullPathStr = [weakSelf getComponentFile:[NSString stringWithFormat:@"%ld",(long)indexPath.row]];
         //同时缓存到硬盘中
-        [imgData writeToFile:fullPathStr atomically:YES];
+        [finallyImgData writeToFile:fullPathStr atomically:YES];
         // 返回主线程
         [[NSOperationQueue mainQueue]addOperationWithBlock:^{
             //此处 数据源已经变了 直接刷新Cell会再次调用cellForItemAtIndexPath代理，
