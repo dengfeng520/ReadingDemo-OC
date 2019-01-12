@@ -46,7 +46,7 @@ static NSString * const MainCollectionCellID = @"MainCollectionCellID";
     __weak typeof (self) weakSelf = self;
     // 设置默认占位图片
     cell.bookImg.image = [UIImage imageNamed:@"Placeholder"];
-    [self addTasks:^{
+//    [self addTasks:^{
         //============================= 从Model中获取数据
         ReadModel *model = weakSelf.bookList[indexPath.row];
         im_image *imgModel = model.im_image.lastObject;
@@ -69,37 +69,39 @@ static NSString * const MainCollectionCellID = @"MainCollectionCellID";
                 // 加入到内存中
                 [weakSelf.imgCacheData setObject:[UIImage imageWithData:imgData] forKey:[NSString stringWithFormat:@"%ld",(long)indexPath.row]];
             }else{
+                // RunLoop
+//                [weakSelf performSelector:@selector(loadImageForOnscreenRows) withObject:indexPath afterDelay:0.f inModes:@[NSDefaultRunLoopMode]];
                 // 滚动时不进行下载操作
                 if(weakSelf.listView.dragging == NO && weakSelf.listView.decelerating == NO){
                     //封装处理
                     [weakSelf startImageDownload:imgModel forIndexPath:indexPath];
-                    //开启下载队列
-//                    dispatch_async(weakSelf.GCDQueue, ^{
-//                        //获取图片URL
-//                        NSURL *imgURL = [NSURL URLWithString:[NSString stringWithFormat:@"%@",imgModel.label]];
-//                        NSData *imgData = [NSData dataWithContentsOfURL:imgURL];
-//                        NSLog(@"======================download\n");
-//                        //[self.imgCacheHashMap setObject:[UIImage imageWithData:imgData] forKey:[NSString stringWithFormat:@"%ld",indexPath.row]];
-//                        //加入内存缓存中
-//                        [weakSelf.imgCacheData setObject:[UIImage imageWithData:imgData] forKey:[NSString stringWithFormat:@"%ld",(long)indexPath.row]];
-//                        //同时缓存到硬盘中
-//                        [imgData writeToFile:fullPathStr atomically:YES];
-//                        //返回主线程
-//                        dispatch_async(dispatch_get_main_queue(), ^{
-//                            //下载完成后 刷新cell
-//                            [collectionView reloadItemsAtIndexPaths:@[indexPath]];
-//                            //加载图片
-//                            cell.bookImg.image = [UIImage imageWithData:imgData];
-//                        });
-//                    });
                     //==============================
                 }
             }
             //=============================
             cell.bookNameLab.text = [[NSString stringWithFormat:@"%@",model.im_name.label]stringByReplacingOccurrencesOfString:@"(null)" withString:@""];
-
+            
+            //开启下载队列
+//            dispatch_async(weakSelf.GCDQueue, ^{
+//                //获取图片URL
+//                NSURL *imgURL = [NSURL URLWithString:[NSString stringWithFormat:@"%@",imgModel.label]];
+//                NSData *imgData = [NSData dataWithContentsOfURL:imgURL];
+//                NSLog(@"======================download\n");
+//                //[self.imgCacheHashMap setObject:[UIImage imageWithData:imgData] forKey:[NSString stringWithFormat:@"%ld",indexPath.row]];
+//                //加入内存缓存中
+//                [weakSelf.imgCacheData setObject:[UIImage imageWithData:imgData] forKey:[NSString stringWithFormat:@"%ld",(long)indexPath.row]];
+//                //同时缓存到硬盘中
+//                [imgData writeToFile:fullPathStr atomically:YES];
+//                //返回主线程
+//                dispatch_async(dispatch_get_main_queue(), ^{
+//                    //下载完成后 刷新cell
+//                    [collectionView reloadItemsAtIndexPaths:@[indexPath]];
+//                    //加载图片
+//                    cell.bookImg.image = [UIImage imageWithData:imgData];
+//                });
+//            });
         }
-    }];
+//    }];
 
     return cell;
 }
@@ -156,13 +158,14 @@ static NSString * const MainCollectionCellID = @"MainCollectionCellID";
 }
 // 完全停止滚动时开始下载图片
 - (void)scrollViewDidEndDecelerating:(UIScrollView *)scrollView{
-    
+
     [self loadImageForOnscreenRows];
 }
 
 // MARK: - download Image
 -(void)loadImageForOnscreenRows{
     if(self.bookList.count > 0){
+        //get the currently displayed cell
         NSArray *visiblePaths = [self.listView indexPathsForVisibleItems];
         for (NSIndexPath *indexPath in visiblePaths){
             //============================= get Model data
@@ -208,6 +211,8 @@ static NSString * const MainCollectionCellID = @"MainCollectionCellID";
         [[NSOperationQueue mainQueue]addOperationWithBlock:^{
             //此处 数据源已经变了 直接刷新Cell会再次调用cellForItemAtIndexPath代理，
             [weakSelf.listView reloadItemsAtIndexPaths:@[indexPath]];
+//            MainCollectionCell *cell = (MainCollectionCell *)[self.listView cellForItemAtIndexPath:indexPath];
+//            cell.bookImg.image = [UIImage imageWithData:finallyImgData];
         }];
     }];
     //加入到队列中
