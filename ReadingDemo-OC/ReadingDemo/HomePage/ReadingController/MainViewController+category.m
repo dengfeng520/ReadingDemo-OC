@@ -102,12 +102,12 @@ static NSString * const MainCollectionCellID = @"MainCollectionCellID";
     }];
 
         //==============================
-//        NSURL *imgURL = [NSURL URLWithString:[NSString stringWithFormat:@"%@",imgModel.label]];
-//        [cell.bookImg sd_setImageWithURL:imgURL placeholderImage:[UIImage imageNamed:@"Placeholder"] options:1 progress:^(NSInteger receivedSize, NSInteger expectedSize, NSURL * _Nullable targetURL) {
-//
-//        } completed:^(UIImage * _Nullable image, NSError * _Nullable error, SDImageCacheType cacheType, NSURL * _Nullable imageURL) {
-//
-//        }];
+        NSURL *imgURL = [NSURL URLWithString:[NSString stringWithFormat:@"%@",imgModel.label]];
+        [cell.bookImg sd_setImageWithURL:imgURL placeholderImage:[UIImage imageNamed:@"Placeholder"] options:1 progress:^(NSInteger receivedSize, NSInteger expectedSize, NSURL * _Nullable targetURL) {
+
+        } completed:^(UIImage * _Nullable image, NSError * _Nullable error, SDImageCacheType cacheType, NSURL * _Nullable imageURL) {
+
+        }];
   
 
     
@@ -141,20 +141,21 @@ static NSString * const MainCollectionCellID = @"MainCollectionCellID";
 
 -(void)collectionView:(UICollectionView *)collectionView didSelectItemAtIndexPath:(NSIndexPath *)indexPath{
     
-    LTBaseViewController *bookPageView = [[NSClassFromString(@"BookPageViewController") alloc]init];
-    //    SEL aSelector = NSSelectorFromString(@"setIsPlayLaunchAnimation:");
-    //    if ([bookPageView respondsToSelector:aSelector]) {
-    //        IMP aIMP = [bookPageView methodForSelector:aSelector];
-    //        void (*setter)(id, SEL, BOOL) = (void(*)(id, SEL, BOOL))aIMP;
-    //        setter(bookPageView, aSelector,true);
-    //    }
-    CATransition *transition = [CATransition animation];
-    transition.duration = 0.35;
-    transition.type = kCATransitionMoveIn;
-    transition.subtype = kCATransitionFromTop;
-    transition.timingFunction = [CAMediaTimingFunction functionWithName:kCAMediaTimingFunctionEaseIn];
-    [self.navigationController.view.layer addAnimation:transition forKey:kCATransition];
-    [self.navigationController pushViewController:bookPageView animated:NO];
+    
+    if(indexPath.row == 0){
+        LTBaseViewController *HorizontalScreenView = [[NSClassFromString(@"HorizontalScreenViewController") alloc]init];
+        [self.navigationController pushViewController:HorizontalScreenView animated:YES];
+    }else{
+        LTBaseViewController *bookPageView = [[NSClassFromString(@"BookPageViewController") alloc]init];
+//        SEL aSelector = NSSelectorFromString(@"setIsPlayLaunchAnimation:");
+//        if ([bookPageView respondsToSelector:aSelector]) {
+//            IMP aIMP = [bookPageView methodForSelector:aSelector];
+//            void (*setter)(id, SEL, BOOL) = (void(*)(id, SEL, BOOL))aIMP;
+//            setter(bookPageView, aSelector,true);
+//        }
+        
+        [self.navigationController pushViewController:bookPageView animated:YES];
+    }
 }
 
 // MARK: - UIScrollViewDelegate
@@ -207,7 +208,6 @@ static NSString * const MainCollectionCellID = @"MainCollectionCellID";
         NSData *imgData = [NSData dataWithContentsOfURL:imgURL];
         NSLog(@"======================download\n");
         NSData *finallyImgData = UIImageJPEGRepresentation([UIImage imageWithData:imgData], 0.8);
-        //
         //加入内存缓存中
         [self.imgCacheData setObject:[UIImage imageWithData:finallyImgData] forKey:[NSString stringWithFormat:@"%ld",(long)indexPath.row]];
         //获取沙盒路径
@@ -289,7 +289,6 @@ static void callBack(CFRunLoopObserverRef observer, CFRunLoopActivity activity, 
         [self.tasksList removeObjectAtIndex:0];
     }
 }
-
 
 @end
 

@@ -8,6 +8,7 @@
 
 #import "BookPageViewController.h"
 
+
 @interface BookPageViewController ()<UIPageViewControllerDataSource,UIPageViewControllerDelegate>
 
 
@@ -24,7 +25,10 @@
     self.view.backgroundColor = [UIColor whiteColor];
     //===============================
     [self createPageViewController];
+    
 }
+
+
 
 - (void)addSingleTapGesture{
     UITapGestureRecognizer *singleTap = [[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(singleTapAction:)];
